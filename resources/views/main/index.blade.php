@@ -19,6 +19,14 @@
     <link rel="stylesheet" type="text/css" href="../assets/main/css/style.css">
     <link rel="stylesheet" type="text/css" href="../css/loader.css">
     <link rel="stylesheet" type="text/css" href="../css/custom.css">
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-9253669175013365",
+        enable_page_level_ads: true
+      });
+    </script>
   </head>
   <body ng-controller="mainController">
     <div class="main-body-container">
