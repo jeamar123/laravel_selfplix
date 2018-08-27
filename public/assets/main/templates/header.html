@@ -1,0 +1,75 @@
+<header header-directive>
+  <div class="header-container">
+    <div class="header-nav">
+        <ul class="nav pull-left">
+            <li ui-sref="home" class="brand-name">
+                <!-- <a href="javascript:void(0)">Brand</a> -->
+                <a href="javascript:void(0)" ui-sref="home">
+                    <img src="../img/logo/camera-logo-white.png">
+                    <span>Selfplix</span>
+                </a>
+            </li>
+        </ul>
+        
+    	<ul class="nav pull-right">
+            <li ui-sref="home" ui-sref-active="active"><a href="javascript:void(0)"><i class="fa fa-home"></i></a></li>
+    		<!-- <li><a href="javascript:void(0)"><i class="fa fa-bell"></i></a></li> -->
+    		<!-- <li ui-sref="leaderboard" ui-sref-active="active"><a href="javascript:void(0)"><i class="fa fa-star"></i></a></li> -->
+            <li ui-sref="upload" ui-sref-active="active"><a href="javascript:void(0)"><i class="fa fa-cloud-upload"></i></a></li>
+            <li ui-sref="profile({ user : '' })" ui-sref-active="active"><a href="javascript:void(0)"><i class="fa fa-user"></i></a></li>
+            <li><a href="javascript:void(0)" data-toggle="modal" data-target="#informationModal"><i class="fa fa-question-circle"></i></a></li>
+    	</ul>
+        <div class="header-search-container pull-right">
+            <form style="position: relative;">
+                <input type="text" class="form-control" ng-model="userSearchText" ng-change="searchChanged( userSearchText )" placeholder="Search">
+                <i class="fa fa-search"></i>
+
+                <div ng-if="searchBoxShow" class="user-search-container">
+                    <div class="user-search-row" ng-if="user_search_list.length == 0">
+                        <p class="fw-700" style="margin: 0;">No user found.</p>
+                    </div>
+                    <div class="user-search-row" ng-repeat="list in user_search_list" ng-click="selectUserSearched( list )">
+                        <div class="img-wrapper">
+                            <img ng-src="{{list.image}}">
+                        </div>
+                        <div class="user-info">
+                            <p class="fullname" ng-bind="list.name">Jeamar Libres</p>
+                            <p class="username">@<span ng-bind="list.username">jmrplbrs</span></p>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+    <div class="modal fade" id="informationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <p class="info-header-title">Welcome to Selfplix !</p>
+
+            <div class="white-space-10"></div>
+            <p class="info-text txt-center">Take a selfie, upload, earn points and redeem prizes.</p>
+            <div class="white-space-20"></div>
+
+            <div class="info">
+                <p class="question">How to upload selfies?</p>
+                <p class="answer">Click the upload ( <i class="fa fa-cloud-upload"></i> ) icon at the header to go to the upload page , add photo and description , then post.</p>
+            </div>  
+
+            <div class="info">
+                <p class="question">How to earn points?</p>
+                <p class="answer">Earn points every time someone likes your selfie. 1 like = 3 points.</p>
+            </div>
+
+            <div class="info">
+                <p class="question">How to redeem prizes?</p>
+                <p class="answer">Go to your profile, or the profile ( <i class="fa fa-user"></i> ) icon at the header, click the redeem ( <i class="fa fa-gift"></i> ) icon, and redeem or view your recent transactions.</p>
+            </div>  
+          </div>
+        </div>
+      </div>
+    </div>
+</header>

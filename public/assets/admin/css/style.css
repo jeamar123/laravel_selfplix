@@ -1,0 +1,257 @@
+body,html{
+  height: 100%;
+  width: 100%;
+  /*background: #EEF2F5;*/
+  background: #FFF;
+  font-family: 'Roboto Thin' !important;
+  color: #777 !important;
+  font-size: 14px;
+  overflow-y: hidden;
+}
+
+.main-body-container{
+  width: 100%;
+  height: 100%;
+}
+
+.main-content-container{
+  width: 100%;
+  height: 100%;
+}
+
+
+/*------------------------*/
+  .home-container{
+    background-color: #eee;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .home-content{
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+  }
+
+  .home-content .admin-left-menu{
+    float: left;
+    width: 15%;
+    background: #FFF;
+    height: 100%;
+    border-right: 1px solid #ddd;
+  }
+
+  .home-content .admin-left-menu .left-ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .home-content .admin-left-menu .left-ul li{
+    /*padding: 0 5px;*/
+  }
+
+  .home-content .admin-left-menu .left-ul li a,
+  .home-content .admin-left-menu .left-ul li a:hover{
+    text-decoration: none;
+    color: #333;
+    display: inline-block;
+    width: 100%;
+    padding: 15px;
+    font-weight: 700;
+    border-bottom: 1px solid #e9e9e9;
+  }
+
+  .home-content .admin-left-menu .left-ul li.active a{
+    background: #188b9c;
+    color: #FFF;
+  }
+
+  .home-content .home-right-content{
+    float: left;
+    width: 85%;
+    background: #fdfdfd;
+    height: 100%;
+    padding: 15px;
+  }
+/*-----------------------*/
+
+/*----------------------*/
+  .transactions-container{
+    overflow-x: auto;
+    height: 85vh;
+  }
+
+  .transactions-container thead tr th{
+    border: none;
+    font-weight: 700;
+    color: #FFF;
+    font-size: 12px;
+    background: #329692;
+  }
+
+  .transactions-container table tbody tr td{
+    font-weight: 700;
+    color: #444;
+    font-size: 12px;
+  }
+
+  .transactions-container table tbody tr:nth-child(odd){
+    background: #eee;
+  }
+
+  .transactions-container table thead tr th:first-child,
+  .transactions-container table tbody tr td:first-child{
+
+  }
+
+  .transactions-container table thead tr th:nth-child(2),
+  .transactions-container table tbody tr td:nth-child(2){
+    
+  }
+
+  .transactions-container table thead tr th:nth-child(3),
+  .transactions-container table tbody tr td:nth-child(3){
+    
+  }
+
+  .transactions-container table thead tr th:nth-child(4),
+  .transactions-container table tbody tr td:nth-child(4){
+    
+  }
+
+  .transactions-container table thead tr th:nth-child(5),
+  .transactions-container table tbody tr td:nth-child(5){
+    
+  }
+
+  .transactions-container table thead tr th:nth-child(6),
+  .transactions-container table tbody tr td:nth-child(6){
+    
+  }
+
+  .transactions-container table thead tr th:nth-child(7),
+  .transactions-container table tbody tr td:nth-child(7){
+    
+  }
+
+  .transactions-container table thead tr th:last-child,
+  .transactions-container table tbody tr td:last-child{
+    text-align: center;
+  }
+/*---------------------*/
+
+/*----------------------*/
+  .posts-container{
+    overflow-x: auto;
+    height: 85vh;
+  }
+
+  .posts-container thead tr th{
+    border: none;
+    font-weight: 700;
+    color: #FFF;
+    font-size: 12px;
+    background: #329692;
+  }
+
+  .posts-container table tbody tr td{
+    font-weight: 700;
+    color: #444;
+    font-size: 12px;
+  }
+
+  .posts-container table tbody tr:nth-child(odd){
+    background: #eee;
+  }
+
+  .posts-container table thead tr th:last-child,
+  .posts-container table tbody tr td:last-child{
+    text-align: center;
+  }
+
+  .posts
+  -container table tbody tr td img{
+    height: 50px;
+    width: 50px;
+  }
+/*---------------------*/
+
+/*----------------------*/
+  .users-container{
+    overflow-x: auto;
+    height: 85vh;
+  }
+
+  .users-container thead tr th{
+    border: none;
+    font-weight: 700;
+    color: #FFF;
+    font-size: 12px;
+    background: #329692;
+  }
+
+  .users-container table tbody tr td{
+    font-weight: 700;
+    color: #444;
+    font-size: 12px;
+  }
+
+  .users-container table tbody tr:nth-child(odd){
+    background: #eee;
+  }
+
+  .users-container table thead tr th:last-child,
+  .users-container table tbody tr td:last-child{
+    text-align: center;
+  }
+
+  .users-container table tbody tr td img{
+    height: 50px;
+    width: 50px;
+  }
+/*---------------------*/
+
+
+/*------------OVERRIDES----------------*/
+
+  input-grouput:focus,
+  button:focus {
+    box-shadow: none !important;
+  }
+
+
+  ::placeholder { 
+    color: #777 !important;
+    font-size: 13px;
+    opacity: .5; 
+  }
+
+  .modal-content{
+    border-radius: 0;
+  }
+
+  .modal-dialog{
+    max-width: unset;
+  }
+
+  *::-webkit-scrollbar-track
+  {
+      /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);*/
+      background-color: #ccc;
+  }
+
+  *::-webkit-scrollbar
+  {
+      width: 3px;
+      /*background-color: #000;*/
+  }
+
+  *::-webkit-scrollbar-thumb
+  {
+      background-color: #235f69;
+      
+      /*background-image: -webkit-gradient(linear, 0 0, 0 100%,*/
+                         /*color-stop(.5, rgba(255, 255, 255, .2)),*/
+                         /*color-stop(.5, transparent), to(transparent));*/
+  } 

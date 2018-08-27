@@ -1,0 +1,33 @@
+<div class="leaderboard-container" leaderboard-directive>
+	<div class="leaderboard-content">
+
+		<p class="header-title"><i class="fa fa-star"></i> Top 10 Weekly Rankings <i class="fa fa-star"></i></p>
+
+		<div class="ranking-container">
+
+			<div class="ranking-row" ng-repeat="list in selfie_rankings">
+				<div class="ranking-number">
+					<p>{{$index+1}}.</p>
+				</div>
+				<div class="img-wrapper">
+					<div class="post-image">
+						<img ng-src="{{list.image}}">
+					</div>
+				</div>
+				<div class="post-info-content">
+					<p class="username">@<span ng-bind="list.username">jeamarpol</span></p>
+					<p class="description">
+						<span ng-if="list.caption == null || list.caption == ''" class="txt-italic">No caption available</span>
+						<span ng-bind="list.caption"></span>
+					</p>
+				</div>
+				<div class="post-like">
+					<span ng-bind="list.likes">999</span>
+					<i class="fa fa-heart"></i>
+				</div>
+			</div>	
+
+		</div>
+
+	</div>
+</div>

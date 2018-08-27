@@ -1,0 +1,29 @@
+<div class="auth-content" auth-directive>
+
+  <div class="login-container">
+    <div class="img-wrapper">
+      <img src="../img/user_icon.png">
+    </div>
+    <form ng-submit="login(login_data)">
+      <p class="clr-333 fw-700 fs-16 text-center" style="margin-bottom: 30px;">Admin</p>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" ng-model="login_data.email">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" ng-model="login_data.password">
+      </div>
+
+      <div class="form-group text-center">
+        <div class="white-space-10"></div>
+        <p ng-if="login_err" class="text-error fw-700" ng-bind="login_err_msg">User not found. Please check your credentials.</p>
+        <button type="submit" class="btn btn-primary submit-btn">Log in</button>
+        <div class="white-space-30"></div>
+      </div>
+      
+    </form>
+  </div>
+
+</div>
+

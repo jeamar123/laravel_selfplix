@@ -1,0 +1,56 @@
+<div class="upload-container" upload-directive>
+	<div class="upload-content">
+		<span ng-if="upload_step == 1" class="step-one">
+			<div class="white-space-20"></div>
+
+			<div class="info-box">
+				<div class="img-wrapper" ngf-select="addSelfieImage($file)" ngf-dimensions="validateFile($file, $width, $height)" ng-model="file" ngf-fix-orientation="true">
+					<img ngf-src="selfieImage || '../img/upload-image.png'">
+				</div>
+				<div class="selfie-desc">
+					<label>Photo Description:</label>
+					<textarea class="form-control" cols="5" rows="5" style="min-height: 100px;" placeholder="Type here..." ng-model="selfieData.caption"></textarea>
+				</div>
+			</div>
+			<div class="white-space-20"></div>
+			<div class="white-space-20"></div>
+			<div class="txt-right">
+				<button class="btn btn-primary step-next" ng-disabled="!selfieImage" ng-click="toggleStep( 2 )">Next <i class="fa fa-caret-right"></i></button>
+			</div>
+		</span>
+
+		<span ng-if="upload_step == 2" class="step-two">
+			<div class="white-space-20"></div>
+
+			<div class="selfie-summary-container">
+				<div class="img-wrapper">
+					<div class="post-image">
+						<img ngf-src="selfieImage">
+					</div>
+				</div>
+				<div class="post-bottom">
+					<div class="post-info">
+						<div class="user-img">
+							<img ng-src="{{user_data.image}}">
+						</div>
+						<div class="user-name">
+							<p ng-bind="user_data.name" class="username">jmrplbrs</p>
+							<p class="likes-value"><span>0</span> likes</p>
+						</div>
+					</div>
+					<div class="post-description">
+						<p ng-bind="selfieData.caption"></p>
+						<p class="post-date" ng-bind="selfieData.date">July 15, 2018</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="white-space-20"></div>
+			<div class="txt-center">
+				<button class="btn btn-primary step-back" ng-click="toggleStep( 1 )"><i class="fa fa-caret-left"></i> Back</button>
+				<button class="btn btn-primary step-next" ng-click="toggleStep( 3 )">Confirm <i class="fa fa-caret-right"></i></button>
+			</div>
+		</span>
+
+	</div>
+</div>

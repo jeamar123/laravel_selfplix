@@ -1,0 +1,93 @@
+<div class="redeem-container" redeem-directive>
+
+	<div class="redeem-content">
+		<div class="redeem-nav">
+			<ul class="redeem-ul">
+				<li ng-class="{ 'active' : isPageShow == 2 }"><a href="javascript:void(0)" ng-click="showBox(2)">Redeem</a></li>
+				<li ng-class="{ 'active' : isPageShow == 1 }"><a href="javascript:void(0)" ng-click="showBox(1)">Transactions</a></li>
+			</ul>
+		</div>
+
+		<div ng-if="isPageShow == 1" id="transactions" class="trans-table-container">
+			<table class="table transactions-tbl">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Phone no.</th>
+						<th>Account number</th>
+						<th>Amount</th>
+						<th>Payment option</th>
+						<th>Date</th>
+						<th>Status</th>
+					</tr>
+				</thead>
+			</table>
+
+			<div class="trans-table-body">
+				<table class="table transactions-tbl">
+					<tbody>
+						<tr ng-repeat="list in transaction_list">
+							<td ng-bind="list.name">Jose Rizal</td>
+							<td ng-bind="list.phone">09269856938</td>
+							<td ng-bind="list.account_number">256234578922</td>
+							<td>P<span ng-bind="list.amount">2,000</span></td>
+							<td ng-bind="list.payment_option">Palawan Express</td>
+							<td ng-bind="list.created_at | cmdate: 'MM/dd/yy'">05/22/18</td>
+							<td ng-bind="list.status">Pending</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div ng-if="isPageShow == 2" id="redeem-points" class="redeem-form-container" >
+			<div class="redeem-form">
+				<form>
+					<p class="points-count">Points : <span ng-bind="user_data.points">999</span></p>
+					<p ng-if="user_data.points < 50" class="redeem-tip">You need to have at least 50 points to redeem.</p>
+
+					<div ng-class="{ 'form-pointer-events-none' : user_data.points < 50 }" class="row">
+						<div class="col-6">
+							<div class="form-group">
+								<label>Payment option</label>
+								<select class="custom-select" ng-model="redeem_data.payment_option">
+								  <option value="BPI">BPI</option>
+								  <option value="Palawan Express">Palawan Express</option>
+								  <!-- <option value="2">Paypal</option> -->
+								</select>
+							</div>
+
+							<div ng-if="redeem_data.payment_option == 'BPI'" class="form-group">
+								<label>Account number</label>
+								<input valid-number type="text" class="form-control" ng-model="redeem_data.account_number" name="">
+							</div>
+
+							<div class="form-group">
+								<label>Php Amount</label>
+								<input valid-number type="text" class="form-control" ng-model="redeem_data.amount" name="">
+							</div>
+						</div>
+						
+						<div class="col-6">
+							<div class="form-group">
+								<label>Receiver's Name</label>
+								<input type="text" class="form-control" ng-model="redeem_data.name" name="">
+							</div>
+
+							<div class="form-group">
+								<label>Phone number</label>
+								<input valid-number type="text" class="form-control" ng-model="redeem_data.phone" name="">
+							</div>
+						</div>
+					</div>
+
+				</form>
+			</div>
+
+			<div class="redeem-box-bottom">
+				<button ng-disabled="user_data.points < 50" class="btn btn-primary" ng-click="redeemTransaction( redeem_data )">Redeem</button>
+			</div>
+		</div>
+	</div>
+
+</div>

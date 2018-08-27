@@ -1,0 +1,19 @@
+<div class="home-container" home-directive>
+	<div class="home-content">
+
+		<div class="admin-left-menu">
+			<ul class="left-ul">
+				<li ui-sref="home.dashboard" ui-sref-active="active"><a href="javascript:void(0)" >Dashboard</a></li>
+				<li ui-sref="home.transactions" ui-sref-active="active"><a href="javascript:void(0)" >Transactions</a></li>
+				<li ui-sref="home.posts" ui-sref-active="active"><a href="javascript:void(0)" >Posts</a></li>
+				<li ui-sref="home.users" ui-sref-active="active"><a href="javascript:void(0)" >Users</a></li>
+				<li><a href="javascript:void(0)" ng-click="logout()">Sign out</a></li>
+			</ul>
+		</div>
+
+		<div class="home-right-content">
+			<div ui-view="home_content"></div>
+		</div>
+
+	</div>
+</div>

@@ -1,0 +1,138 @@
+<div class="profile-container" profile-directive>
+	<div class="profile-content">
+		
+		<span ng-if="isEditProfileShow == false" class="user-feed" >
+			<div class="user-info-box">
+				<div class="img-wrapper">
+					<img ng-src="{{user_data.image}}">
+				</div>
+
+				<div class="info-content">
+					<p class="user-name"><span ng-bind="user_data.name">Jeamar Paul Libres</span> <a href="javascript:void(0)" ng-if="!isUserSearch" class="float-right sign-out-btn" ng-click="logout()">Logout <i class="fa fa-sign-out"></i> </a></p>
+					<p class="user-nickname">@<span ng-bind="user_data.username">jmrplbrs</span></p>
+					<button ng-if="!isUserSearch" class="btn btn-primary btn-edit-profile" ng-click="toggleEditProfile()">Edit Profile</button>
+					<button ng-if="!isUserSearch" class="btn btn-primary btn-edit-profile btn-redeem" ui-sref="redeem"><i class="fa fa-gift"></i></button>
+					<button ng-if="isUserSearch" class="btn btn-primary btn-edit-profile" ng-class="{'active' : user_data.isFollowed == true}" ng-click="followUpdateUser( user_data )">
+						<span ng-if="!user_data.isFollowed">Follow <i class="fa fa-plus"></i></span>
+						<span ng-if="user_data.isFollowed">Following</span>
+					</button>
+					<span ng-if="isUserSearch && user_data.isFollowing == true" class="follows-you">Follows you</span>
+					<p>
+						<span class="user-posts">
+							<span ng-bind="user_data.posts">999</span> posts
+						</span>
+						<span ng-if="!isUserSearch" class="user-points">
+							<span ng-bind="user_data.points">999</span> points
+						</span>
+						<span class="user-followers">
+							<span ng-bind="user_data.followers">999</span> followers
+						</span>
+						<span class="user-following">
+							<span ng-bind="user_data.following">999</span> following
+						</span>
+					</p>
+				</div>
+			</div>
+
+			<div class="user-post-box">
+				
+				<div class="user-post" ng-repeat="list in user_post" ng-click="userPostSelected( list )">
+					<div class="img-wrapper">
+						<div class="post-image">
+							<img ng-src="{{list.image}}">
+						</div>
+					</div>
+					<div class="post-overlay">
+						<div class="likes-count">
+							<!-- <span class="pull-left">#<span ng-bind="list.rank">47</span></span> -->
+							<i class="fa fa-heart"></i> <span ng-bind="list.likes">99</span> 
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</span>
+
+		<span ng-if="isEditProfileShow == true" class="user-update-box">
+			<form class="user-update-form" ng-submit="updateProfileInfo( user_data )">
+				<div class="update-image-box">
+					<div class="user-image-box" class="upload-box" ngf-select="setNewProfilePhoto($file)" ng-model="update_user_image" ngf-fix-orientation="true">
+						<img ng-if="update_user_image" ngf-src="update_user_image || '../img/user-blue.png'">
+						<img ng-if="!update_user_image" ng-src="{{user_data.image}}">
+					</div>
+				</div>
+				<div class="form-group">
+					<label>Full Name</label>
+					<input type="text" class="form-control" ng-model="user_data.name">
+				</div>
+				<div class="form-group">
+					<label>Username</label>
+					<input type="text" class="form-control" ng-model="user_data.username">
+				</div>
+				<div class="form-group">
+					<label>Email Address</label>
+					<input type="text" class="form-control" ng-model="user_data.email">
+				</div>
+				<div class="form-group txt-center">
+					<button type="button" class="btn btn-primary cancel-btn" ng-click="toggleEditProfile()">Cancel</button>
+					<button type="submit" class="btn btn-primary update-btn">Update</button>
+				</div>
+			</form>
+		</span>
+
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="showPostModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-body">
+
+	        <div class="photo-post-container">
+	        	<div class="photo-box">
+	        		<div class="img-wrapper">
+	        			<img ng-src="{{selected_post.image}}">
+	        		</div>
+	        	</div>
+
+	        	<div class="info-box">
+	        		<div class="user-info-content">
+	        			<div class="user-image">
+		        			<img ng-src="{{user_data.image}}">
+	        			</div>	
+	        			<div class="user-name">
+									<p ng-bind="user_data.username">jmrplbrs</p>
+									<!-- <p class="post-ranking">Rank #<span ng-bind="selected_post.rank">56</span></p> -->
+								</div>
+								<div class="post-likes" ng-click="heartOption( selected_post )">
+									<span ng-bind="selected_post.likes">99</span>
+									<i ng-if="selected_post.isLiked" class="fa fa-heart"></i>
+									<i ng-if="!selected_post.isLiked" class="fa fa-heart-o"></i>
+								</div>
+	        		</div>
+
+	        		<div class="user-post-description">
+	        			<p ng-bind="selected_post.caption">Lorem Ipsum dolor sit amet.</p>
+	        		</div>	
+
+	        		<div class="user-post-options">
+	        			<p class="post-date">
+		        			<span ng-bind="getPostedDate(selected_post.created_at)">July 15, 2018</span>
+		        			<a ng-if="!isUserSearch" href="javascript:void(0)" id="userSettingsClicked"><i class="fa fa-ellipsis-h user-options"></i></a>
+		        		</p>
+
+		        		<div class="post-settings-drop-box">
+		        			<ul>
+		        				<!-- <li><a href="javascript:void(0)">Edit</a></li> -->
+		        				<li><a href="javascript:void(0)" ng-click="deletePost( selected_post.id )">Delete</a></li>
+		        			</ul>
+		        		</div>
+	        		</div>
+	        	</div>
+	        </div>
+
+	      </div>
+	    </div>
+	  </div>
+	</div>
+</div>

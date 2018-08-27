@@ -1,0 +1,31 @@
+<div class="home-container" home-directive>
+	<div class="home-content">
+
+		<div class="post-container" ng-repeat="list in user_feed">
+			<div class="img-wrapper">
+				<div class="post-image">
+					<img ng-src="{{list.image}}">
+				</div>
+			</div>
+			<div class="post-bottom">
+				<div class="post-info">
+					<div class="user-img" ng-click="goToUser( list )">
+						<img ng-src="{{list.user_image}}">
+					</div>
+					<div class="user-name">
+						<p ng-bind="list.username" class="username" ng-click="goToUser( list )">jmrplbrs</p>
+						<p class="likes-value"><span ng-bind="list.likes">999</span> likes</p>
+					</div>
+					<div class="post-like" ng-class="{'active' : list.isLiked == true}" ng-click="heartOption( list )">
+						<i class="fa fa-heart"></i>
+					</div>
+				</div>
+				<div class="post-description">
+					<p ng-bind="list.caption">Lorem ipsum dolor sit amet.</p>
+					<p class="post-date" ng-bind="getPostedDate(list.created_at)">July 15, 2018</p>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>

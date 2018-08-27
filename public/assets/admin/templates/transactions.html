@@ -1,0 +1,38 @@
+<div class="transactions-container" transactions-directive>
+{{test}}
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Account Number</th>
+				<th>Phone Number</th>
+				<th>Amount</th>
+				<th>Payment option</th>
+				<th>Date</th>
+				<th>Status</th>
+				<th>Options</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="list in transactions_arr">
+				<td ng-bind="list.name">Jeamar Paul Libred</td>
+				<td ng-bind="list.account_number">2345334523466</td>
+				<td ng-bind="list.phone">09269856938</td>
+				<td ng-bind="list.amount">5,000</td>
+				<td ng-bind="list.payment_option">Palawan Express</td>
+				<td ng-bind="list.create_at | cmdate:'MMM DD, YYYY' ">Jun 06, 2018</td>
+				<td ng-bind="list.status">Approved</td>
+				<td>
+					<button class="btn btn-success btn-approve">
+						Approve
+					</button>
+					<button class="btn btn-danger btn-reject">
+						Reject
+					</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	
+
+</div>
