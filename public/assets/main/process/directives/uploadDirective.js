@@ -23,12 +23,10 @@ app.directive('uploadDirective', [
         scope.upload_step = 1;
 
         scope.addSelfieImage = function( file ){
-          console.log(file);
           scope.selfieImage = file;
         }
 
         scope.validateFile = ( file ) =>{
-          console.log(file);
           if( file.type != "image/png" && file.type != "image/jpeg" ){
             swal({
               title: "Invalid File.",
@@ -45,7 +43,6 @@ app.directive('uploadDirective', [
 
         scope.toggleStep = function( opt ){
           if( opt == 3 ){
-            scope.toggleLoading();
             scope.submitSelfie();
           }else{
             scope.toggleLoading();
@@ -61,14 +58,16 @@ app.directive('uploadDirective', [
             caption : scope.selfieData.caption,
           }
 
+          console.log(data);
+          scope.showLoading();
           appModule.addSelfie( data )
             .then(function(response){
               console.log( response );
               if( response.data.status == true ){
                 scope.upload_step = 1;
                 swal({
-                  title: "Selfie successfully posted !",
-                  text: "",
+                  title: "",
+                  text: "Selfie successfully posted !",
                   type: "success",
                   showCancelButton: false,
                   closeOnConfirm: true,
@@ -79,8 +78,7 @@ app.directive('uploadDirective', [
                     caption : "",
                     date : moment().fromNow(),
                   }
-                  // scope.upload_step = 1;
-                  scope.toggleLoading();
+                  scope.hideLoading();
                   $state.go('home');
                 });
               }else{
@@ -92,7 +90,7 @@ app.directive('uploadDirective', [
                   closeOnConfirm: true,
                   animation: "slide-from-top"
                 }, function(isTrue){
-                  scope.toggleLoading();
+                  scope.hideLoading();
                 });
               }
             });
@@ -108,6 +106,18 @@ app.directive('uploadDirective', [
 
         var isLoading = false;
 
+        scope.hideLoading = ( ) =>{
+          isLoading = false;
+          setTimeout(function() {
+            $(".body-loader").fadeOut("slow");
+          }, 300);
+        }
+
+        scope.showLoading = ( ) =>{
+          $(".body-loader").show();
+          isLoading = true;
+        }
+ 
         scope.toggleLoading = ( ) =>{
           if( isLoading == true ){
             isLoading = false;
