@@ -106,8 +106,10 @@ app.directive('homeDirective', [
         }
 
         scope.onLoad = ( ) =>{
-          scope.getUserData();
-
+          if( sessionFactory.getSession() != null ){
+            scope.getUserData();
+          }
+          
           setTimeout(function() {
             $(".body-loader").fadeOut("slow");
           }, 1000);

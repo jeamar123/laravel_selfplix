@@ -31,13 +31,13 @@
     </script>
 
 
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script>
       (adsbygoogle = window.adsbygoogle || []).push({
         google_ad_client: "ca-pub-9253669175013365",
         enable_page_level_ads: true
       });
-    </script>
+    </script> -->
   </head>
   <body ng-controller="mainController">
     <div class="main-body-container">
@@ -85,7 +85,9 @@
 
   <script type="text/javascript" src="<?php echo $server; ?>/assets/main/process/factories/factories.js"></script>
 
-  <script type="text/javascript" src="<?php echo $server; ?>/assets/main/process/services/services.js"></script>
+  <script type="text/javascript" src="<?php echo $server; ?>/assets/main/process/services/services.js"></script>  
+
+  <script src="https://apis.google.com/js/api.js"></script>
 
   <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOzaOYgvdwnATwVIvSpYixj32rTLbVF3k"></script> -->
 </html>

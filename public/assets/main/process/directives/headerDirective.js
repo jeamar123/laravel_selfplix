@@ -54,7 +54,9 @@ app.directive('headerDirective', [
         }
 
         scope.onLoad = ( ) =>{
-          scope.getUserData();
+          if( sessionFactory.getSession() != null ){
+            scope.getUserData();
+          }
         }
 
         scope.onLoad();

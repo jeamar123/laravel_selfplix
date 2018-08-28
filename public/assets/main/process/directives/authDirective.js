@@ -14,6 +14,7 @@ app.directive('authDirective', [
         console.log( "authDirective Runinng !" );
 
         scope.isSignupShow = false;
+        scope.noUserLoggedIn = true;
         scope.login_data = {};
         scope.signup_data = {};
 
@@ -101,15 +102,62 @@ app.directive('authDirective', [
         }
 
         scope.onLoad = ( ) =>{
-          scope.toggleLoading();
 
-          setTimeout(function() {
-            // $(".body-loader").fadeOut("slow");
-            scope.toggleLoading();
-          }, 1000);
         }
 
         scope.onLoad();
+
+
+
+        // scope.signInWithGoogle = ( ) =>{
+        //   gapi.auth2.getAuthInstance().signIn();
+        // }
+
+        // scope.updateSigninStatus = ( isSignedIn ) =>{
+        //   if (isSignedIn) {
+        //     scope.getSignInDetalis();
+        //   }else{
+        //     scope.noUserLoggedIn = true;
+        //   }
+        // }
+
+        // scope.getSignInDetalis = ( ) =>{
+        //   gapi.client.people.people.get({
+        //     'resourceName': 'people/me',
+        //     'requestMask.includeField': 'person.names,person.emailAddresses,person.phoneNumbers,person.birthdays,person.addresses'
+        //   }).then(function(response) {
+        //     console.log(response.result);
+        //     console.log('Hello, ' + response.result.names[0].givenName);
+        //     sessionFactory.setSession( response.result.emailAddresses[0].value );
+        //     // $state.go('home');
+        //   }, function(reason) {
+        //     console.log('Error: ' + reason.result.error.message);
+        //   });
+        // }
+
+        // scope.initGoogleAuth = ( ) =>{
+        //   gapi.client.init({
+        //       apiKey: 'AIzaSyDVDGbrc2hjtOAfnVXV1aZn2QgTU6ubXbA',
+        //       discoveryDocs: ["https://people.googleapis.com/$discovery/rest?version=v1"],
+        //       clientId: '1005628683520-3ntkl0sfsjv9pfpvl0hd2emfr6r4rpsi.apps.googleusercontent.com',
+        //       scope: 'profile'
+        //   }).then(function(res) {
+        //     gapi.auth2.getAuthInstance().isSignedIn.listen(scope.updateSigninStatus);
+
+        //     scope.updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+
+        //   }).then(function(response) {
+        //     console.log(response);
+        //     if( gapi.auth2.getAuthInstance().isSignedIn.get() == false ){
+        //       console.log('No google user logged in.');
+        //     }
+        //   }, function(reason) {
+        //     console.log( reason );
+        //   });
+        // }
+
+        // gapi.load('client', scope.initGoogleAuth);
+
 
       }
     }

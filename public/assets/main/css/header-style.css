@@ -30,13 +30,13 @@
 }
 
 .header-nav ul li.brand-name a span{
-	display: inline-block;
+  display: inline-block;
   vertical-align: middle;
-  padding: 0 10px;
+  /*padding: 0 0px;*/
   font-size: 20px;
   position: relative;
   top: 2px;
-  letter-spacing: 2px;
+  /*letter-spacing: 0px;*/
   font-family: 'Helvetica Thin';
 }
 
