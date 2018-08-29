@@ -11,6 +11,9 @@ appService.factory('appModule', function( serverUrl, $http, Upload ){
     return $http.post(serverUrl.url + 'api/signup', data);
   };
 
+  appFactory.checkUserEmail = function( data ) {
+    return $http.get(serverUrl.url + 'api/check_existing_user/' + data);
+  };
   
 
   appFactory.addSelfie = function( data ) {

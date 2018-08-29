@@ -11,5 +11,10 @@
 |
 */
 
-Route::get('/', 'HomeController@getHomeView');
+Route::get('/', 'HomeController@getLandingView');
+Route::get('/contact', 'HomeController@getContactView');
+Route::get('/about-us', 'HomeController@getAboutView');
+
+
 Route::get('/admin', 'HomeController@getAdminView');
+Route::get('/app', 'HomeController@getHomeView');

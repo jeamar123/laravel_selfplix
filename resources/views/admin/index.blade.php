@@ -57,6 +57,8 @@
   <script type="text/javascript" src="<?php echo $server; ?>/assets/admin/process/directives/headerDirective.js"></script>
   <script type="text/javascript" src="<?php echo $server; ?>/assets/admin/process/directives/homeDirective.js"></script>
   <script type="text/javascript" src="<?php echo $server; ?>/assets/admin/process/directives/transactionsDirective.js"></script>
+  <script type="text/javascript" src="<?php echo $server; ?>/assets/admin/process/directives/postsDirective.js"></script>
+  <script type="text/javascript" src="<?php echo $server; ?>/assets/admin/process/directives/usersDirective.js"></script>
 
   <script type="text/javascript" src="<?php echo $server; ?>/assets/admin/process/factories/factories.js"></script>
 

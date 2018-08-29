@@ -61,6 +61,7 @@ class AuthController extends Controller
                 'username' => $request->get('username'),
                 'email' => $request->get('email'),
                 'password' => md5($request->get('password')),
+                'points' => 50
               ]);
 
     if( $create ){

@@ -5,8 +5,8 @@
       <img src="../img/logo/camera3.png">
     </div>
     <form ng-submit="login(login_data)">
-      <p class="clr-333 fw-700 fs-16 text-center" style="margin-bottom: 30px;">Take a selfie, upload, and earn points!</p>
-      <!-- <p class="clr-333 fw-700 fs-16 text-center" style="margin-bottom: 30px;">Take a selfie, earn points and redeem prizes!</p> -->
+      <!-- <p class="clr-333 fw-700 fs-16 text-center" style="margin-bottom: 30px;">Take a selfie, upload, and earn points!</p> -->
+      <p class="clr-333 fw-700 fs-16 text-center" style="margin-bottom: 30px;">Take a selfie, upload, earn points and redeem prizes!</p>
 
       <div ng-if="!noUserLoggedIn" class="login-spinner text-center">
         <i class="fa fa-rotate-right fa-spin fa-3x fa-fw"></i>
@@ -26,8 +26,8 @@
           <div class="white-space-10"></div>
           <p ng-if="login_err" class="text-error fw-700" ng-bind="login_err_msg">User not found. Please check your credentials.</p>
           <button type="submit" class="btn btn-primary submit-btn">Sign in</button>
-          <!-- <div class="white-space-10"></div>
-          <p class="txt-center ">_______________  <span style="position: relative;top: 4px;margin: 0 15px;">or</span>  _______________</p>
+          <div class="white-space-10"></div>
+          <!-- <p class="txt-center ">_______________  <span style="position: relative;top: 4px;margin: 0 15px;">or</span>  _______________</p>
           <div class="login-social-container">
             <img src="../img/facebook.png">
             <img ng-click="signInWithGoogle()" src="../img/google-plus.png">

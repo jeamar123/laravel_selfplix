@@ -67,3 +67,22 @@
     font-family: 'Roboto Medium'; /* Global font */
     src: url('../fonts/roboto/Roboto-Medium.ttf')  format('truetype');
 }
+
+
+
+
+
+@font-face {
+    font-family: 'Montserrat'; /* Global font */
+    src: url('../fonts/montserrat/Montserrat-Regular.otf')  format('truetype');
+}
+
+@font-face {
+    font-family: 'Montserrat-Thin'; /* Global font */
+    src: url('../fonts/montserrat/Montserrat-Thin.otf')  format('truetype');
+}
+
+@font-face {
+    font-family: 'Montserrat-Light'; /* Global font */
+    src: url('../fonts/montserrat/Montserrat-Light.otf')  format('truetype');
+}

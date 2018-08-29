@@ -155,7 +155,7 @@ class SelfieController extends Controller
     if($create_like) {
       Selfie::where('id', '=', $post['id'])->increment('likes', 1);
       if( $request->get('user_id') != $post['user_id'] ){
-        User::where('id', '=', $post['user_id'])->increment('points', 3);
+        User::where('id', '=', $post['user_id'])->increment('points', 2);
       }
 
       $data['status'] = true;
@@ -180,7 +180,7 @@ class SelfieController extends Controller
     if($delete_like) {
       Selfie::where('id', '=', $post['id'])->decrement('likes', 1);
       if( $request->get('user_id') != $post['user_id'] ){
-        User::where('id', '=', $post['user_id'])->decrement('points', 3);
+        User::where('id', '=', $post['user_id'])->decrement('points', 2);
       }
 
       $data['status'] = true;

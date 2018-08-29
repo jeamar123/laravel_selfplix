@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->integer('points')->default(0);
             $table->integer('followers')->default(0);
             $table->integer('following')->default(0);
+            $table->integer('reg_type')->nullable();
             $table->timestamps();
         });
     }

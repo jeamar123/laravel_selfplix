@@ -1,6 +1,10 @@
 <div class="home-container" home-directive>
 	<div class="home-content">
 
+		<div class="no-feed-posts" ng-if="user_feed.length == 0">
+				<p class="text-center no-margin fw-700" style="font-size: 18px;">No posts yet. <a href="javascript:void(0)" ui-sref="upload">Upload your first selfie now</a>.</p>
+		</div>
+
 		<div class="post-container" ng-repeat="list in user_feed">
 			<div class="img-wrapper">
 				<div class="post-image">

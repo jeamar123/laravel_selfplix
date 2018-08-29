@@ -28,10 +28,38 @@ class UserController extends Controller
     ));
   }
 
+  public function getAllUsers( ){
+    $data = array();
+    $all_users = User::orderBy('created_at')->get();
+
+    $data['status'] = true;
+    $data['users'] = $all_users;
+    $data['message'] = 'Success.';
+
+    return $data;
+  }
+
   public function getUserDetails( $id ){
     $data = array();
     $data = User::where('id', '=', $id)->get();
+
     return $data[0];
+  }
+
+  public function chckeUserExist( $email ){
+    $data = array();
+
+    $count = User::where('email', '=', $email)->count();
+
+    if( $count > 0 ){
+      $data['status'] = true;
+      $data['message'] = 'Success.';
+    }else{
+      $data['status'] = false;
+      $data['message'] = 'Failed.';
+    }
+
+    return $data;
   }
 
   public function getSearchUserDetails( Request $request ){

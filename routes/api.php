@@ -20,6 +20,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('/login', 'AuthController@login');
 Route::post('/signup', 'AuthController@register');
 
+Route::get('/check_existing_user/{id}', 'UserController@chckeUserExist');
+
 Route::get('/get_user_info/{id}', 'UserController@getUserDetails');
 Route::post('/get_search_user_info', 'UserController@getSearchUserDetails');
 Route::post('/update_user', 'UserController@updateUser');
@@ -45,3 +47,5 @@ Route::post('/update_transaction', 'TransactionsController@updateTransaction');
 
 Route::post('/admin/login', 'AuthAdminController@login');
 Route::get('/admin/get_transactions', 'TransactionsController@getAllTransaction');
+Route::get('/admin/get_posts', 'SelfieController@getWeeklyRankings');
+Route::get('/admin/get_users', 'UserController@getAllUsers');

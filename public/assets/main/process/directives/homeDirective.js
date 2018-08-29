@@ -84,6 +84,7 @@ app.directive('homeDirective', [
           scope.toggleLoading();
           appModule.getUserInfo( sessionFactory.getSession() )
             .then(function(response){
+              console.log(response);
               scope.user_data = response.data;
               scope.getHomeFeed();
             });

@@ -15,6 +15,14 @@ appService.factory('appModule', function( serverUrl, $http, Upload ){
     return $http.get(serverUrl.url + 'api/admin/get_transactions');
   };
 
+  appFactory.getUsers = function( ) {
+    return $http.get(serverUrl.url + 'api/admin/get_users');
+  };
+
+  appFactory.getPosts = function( ) {
+    return $http.get(serverUrl.url + 'api/admin/get_posts');
+  };
+
 
 
 

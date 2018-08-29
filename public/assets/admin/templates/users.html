@@ -1,4 +1,4 @@
-<div class="users-container">
+<div class="users-container" users-directive>
 	
 	<table class="table">
 		<thead>
@@ -15,17 +15,17 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="list in [1,2,3,4,5,6,7,8,9,10]">
+			<tr ng-repeat="list in users_arr">
 				<td>
-					<img src="../img/gallery.png">
+					<img ng-src="{{list.image}}">
 				</td>
-				<td>Jeamar Libres</td>
-				<td>jmrplbrs</td>
-				<td>jeamar1234@gmail.com</td>
-				<td>99</td>
-				<td>99</td>
-				<td>99</td>
-				<td>99</td>
+				<td ng-bind="list.name">Jeamar Libres</td>
+				<td ng-bind="list.username">jmrplbrs</td>
+				<td ng-bind="list.email">jeamar1234@gmail.com</td>
+				<td ng-bind="list.posts">99</td>
+				<td ng-bind="list.points">99</td>
+				<td ng-bind="list.followers">99</td>
+				<td ng-bind="list.following">99</td>
 				<td>
 					<button class="btn btn-danger btn-delete">
 						Delete

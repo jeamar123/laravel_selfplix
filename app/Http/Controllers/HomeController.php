@@ -17,6 +17,37 @@ class HomeController extends Controller
    * @param  int  $id
    * @return Response
    */
+
+  public function getLandingView( ){
+    $hostName = $_SERVER['HTTP_HOST'];
+    $protocol = $protocol = isset($_SERVER['HTTPS']) ? 'https://' : 'http://';
+    $data['server'] = $protocol.$hostName;
+    $now = new \DateTime();
+    $data['date'] = $now;
+
+    return view('landing.index', $data);
+  }
+
+  public function getAboutView( ){
+    $hostName = $_SERVER['HTTP_HOST'];
+    $protocol = $protocol = isset($_SERVER['HTTPS']) ? 'https://' : 'http://';
+    $data['server'] = $protocol.$hostName;
+    $now = new \DateTime();
+    $data['date'] = $now;
+
+    return view('landing.about-us', $data);
+  }
+
+  public function getContactView( ){
+    $hostName = $_SERVER['HTTP_HOST'];
+    $protocol = $protocol = isset($_SERVER['HTTPS']) ? 'https://' : 'http://';
+    $data['server'] = $protocol.$hostName;
+    $now = new \DateTime();
+    $data['date'] = $now;
+
+    return view('landing.contact', $data);
+  }
+
   public function getHomeView( ){
     $hostName = $_SERVER['HTTP_HOST'];
     $protocol = $protocol = isset($_SERVER['HTTPS']) ? 'https://' : 'http://';

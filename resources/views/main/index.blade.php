@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Selfplix</title>
+    <title>Selfplix - Earn points and redeem prizes</title>
     <link rel="shortcut icon" href="{{ asset('img/logo/camera3.png') }}" type="image/ico">
 
     <link rel="stylesheet" type="text/css" href="../css/fonts.css">
