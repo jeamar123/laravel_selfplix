@@ -67,6 +67,7 @@ body,html{
     background-position: center; 
     background-size: auto 100%;
     position: relative;
+    border-bottom: 1px solid #e9e9e9;
   }
 
   .home-content .post-container .img-wrapper .post-image img{
@@ -94,14 +95,16 @@ body,html{
 
   .home-content .post-container .post-bottom .post-info .user-img{
     width: 50px;
+    height: 50px;
     vertical-align: top;
     text-align: center;
-    padding-left: 5px;
+    padding: 2px;
     cursor: pointer;
   }
 
   .home-content .post-container .post-bottom .post-info .user-img img{
-    width: 90%;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
   }
 

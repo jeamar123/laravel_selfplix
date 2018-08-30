@@ -32,7 +32,6 @@ app.directive('authDirective', [
         }
 
         scope.login = ( login_data ) =>{
-          console.log(login_data);
           if( login_data.email && login_data.password ){
             scope.toggleLoading();
             var data = {

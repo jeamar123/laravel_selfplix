@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+use App\Admin;
+
 class CreateAdminTable extends Migration
 {
     /**
@@ -19,6 +21,13 @@ class CreateAdminTable extends Migration
             $table->string('password');
             $table->timestamps();
         });
+
+        Admin::insert(
+            array(
+                'email' => 'admin@selfplix.com',
+                'password' => 'admin'
+            )
+        );
     }
 
     /**

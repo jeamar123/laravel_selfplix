@@ -57,8 +57,6 @@ app.directive('uploadDirective', [
             file : scope.selfieImage,
             caption : scope.selfieData.caption,
           }
-
-          console.log(data);
           scope.showLoading();
           appModule.addSelfie( data )
             .then(function(response){
