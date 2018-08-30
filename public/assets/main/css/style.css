@@ -1111,6 +1111,29 @@ body,html{
   }
 /*----------------------*/
 
+/*---------------------*/
+  .referral-container{
+    width: 100%;
+    padding: 0 30px;
+    font-family: 'Helvetica Thin';
+  }
+
+  .referral-container p{
+    font-weight: 700;
+    color: #000;
+    font-size: 18px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    width: 50%;
+  }
+
+  .referral-container p label{
+    font-size: 20px;
+    margin-right: 10px;
+    color: #999;
+  }
+
+/*----------------------*/
 
 
 /*------------OVERRIDES----------------*/

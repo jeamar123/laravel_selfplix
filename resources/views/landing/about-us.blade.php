@@ -21,21 +21,23 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-124730031-1"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      if( window.location.hostname != 'localhost' ){
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-      gtag('config', 'UA-124730031-1');
+        gtag('config', 'UA-124730031-1');
+      }
     </script>
     <style type="text/css">
       .header-container {
-          background-color: #0e6471;
+          /*background-color: #0e6471;*/
       }
     </style>
   </head>
   <body>
 
-    <header style="background-image: url('../img/mug-bag-autumn-weather-happy_1157-3983.jpg')">
+    <header style="background-image: url('../img/about.jpg')">
       <div class="banner-overlay"></div>
 
       <div class="header-container">
@@ -51,35 +53,39 @@
           
           <ul class="nav pull-right">
             <li><a href="/">Home</a></li>
-            <!-- <li class="active"><a href="/about-us">About us</a></li> -->
+            <li class="active"><a href="/about-us">About us</a></li>
             <li><a href="/contact">Contact</a></li>
             <li class="login-li"><a href="javascript:void(0)" onclick="window.location.href = 'app'">Login</a></li>
           </ul>
         </div>
       </div>
 
-      <!-- <div class="header-banner" >
+      <div class="header-banner" >
         <div class="banner-content">
           <p class="banner-title">
-            Join us and be part of our network
+            Providing you an easy way to earn.
           </p>
           <p class="banner-description">
-            Earn cash by taking selfies, posting, getting likes, earning points, and redeeming prizes.
+            While posting your amazing selfies.
           </p>
         </div>
         <div class="banner-buttons">
-          <button class="btn btn-primary btn-join" onclick="window.location.href = 'app'">Join now</button>
+          <button class="btn btn-primary btn-join" onclick="window.location.href = 'app'">Register now</button>
         </div>
         <div class="banner-scroll">
-          <a href="#what-selfplix-can-do-section-id"><i class="fa fa-angle-down"></i></a>
+          <a href="#about-us-container-id"><i class="fa fa-angle-down"></i></a>
         </div>
-      </div> -->
+      </div>
     </header>
 
     <section class="body-section">
-      <div class="about-us-container">
+      <div id="about-us-container-id" class="about-us-container">
         <p class="about-title">
-          About Us
+          Our Mission
+        </p>
+
+        <p class="about-text">
+          To capture the best memories and share beautiful creations with the world.<br> By taking selfies and capturing moments, the users can share each others activities through the app, while collecting likes and earning points, and redeeming prizes.
         </p>
       </div>
     </section>

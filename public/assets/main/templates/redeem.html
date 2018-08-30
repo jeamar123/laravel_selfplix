@@ -3,12 +3,20 @@
 	<div class="redeem-content">
 		<div class="redeem-nav">
 			<ul class="redeem-ul">
+				<li ng-class="{ 'active' : isPageShow == 1 }"><a href="javascript:void(0)" ng-click="showBox(1)">Referral</a></li>
 				<li ng-class="{ 'active' : isPageShow == 2 }"><a href="javascript:void(0)" ng-click="showBox(2)">Redeem</a></li>
-				<li ng-class="{ 'active' : isPageShow == 1 }"><a href="javascript:void(0)" ng-click="showBox(1)">Transactions</a></li>
+				<li ng-class="{ 'active' : isPageShow == 3 }"><a href="javascript:void(0)" ng-click="showBox(3)">Transactions</a></li>
 			</ul>
 		</div>
 
-		<div ng-if="isPageShow == 1" id="transactions" class="trans-table-container">
+		<div ng-if="isPageShow == 1" id="transactions" class="referral-container">
+			
+			<p><label>Referrals :</label> <span ng-bind="user_data.referrals">23</span></p>
+
+			<p><label>Code :</label> <span ng-bind="user_data.referral_code">UYMt6P</span></p>
+		</div>
+
+		<div ng-if="isPageShow == 2" id="transactions" class="trans-table-container">
 			<table class="table transactions-tbl">
 				<thead>
 					<tr>
@@ -40,7 +48,7 @@
 			</div>
 		</div>
 
-		<div ng-if="isPageShow == 2" id="redeem-points" class="redeem-form-container" >
+		<div ng-if="isPageShow == 3" id="redeem-points" class="redeem-form-container" >
 			<div class="redeem-form">
 				<form>
 					<p class="points-count">Points : <span ng-bind="user_data.points">999</span></p>

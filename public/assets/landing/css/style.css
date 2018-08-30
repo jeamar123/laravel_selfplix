@@ -65,6 +65,28 @@ body,html{
 /*------------------------*/
 
 /*------------------------*/
+  .about-us-container{
+    min-height: 500px;
+    padding: 100px 200px;
+    font-family: 'Roboto Thin';
+  }
+
+  .about-us-container .about-title{
+    font-weight: 700;
+    font-size: 40px;
+    color: #0e6471;
+    margin: 30px 0;
+    text-align: center;
+  }
+
+  .about-us-container .about-text{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+  }
+/*----------------------*/
+
+/*------------------------*/
   .contact-us-container{
     /*padding: 0 100px; */
     padding-top: 100px;

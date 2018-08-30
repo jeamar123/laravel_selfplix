@@ -63,6 +63,11 @@
         <input type="password" class="form-control" id="re" ng-model="signup_data.re_password">
       </div>
 
+      <div class="form-group">
+        <label for="re">Referral Code ( Optional )</label>
+        <input type="password" class="form-control" id="re" ng-model="signup_data.referral">
+      </div>
+
       <div class="form-group text-center">
         <p ng-if="email_invalid_err" class="text-error fw-700">Email is invalid.</p>
         <p ng-if="password_err" class="text-error fw-700">Password did not match.</p>

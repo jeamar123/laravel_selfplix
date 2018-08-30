@@ -21,11 +21,13 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-124730031-1"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      if( window.location.hostname != 'localhost' ){
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-      gtag('config', 'UA-124730031-1');
+        gtag('config', 'UA-124730031-1');
+      }
     </script>
 
     <style type="text/css">
@@ -52,7 +54,7 @@
           
           <ul class="nav pull-right">
             <li><a href="/">Home</a></li>
-            <!-- <li><a href="/about-us">About us</a></li> -->
+            <li><a href="/about-us">About us</a></li>
             <li class="active"><a href="/contact">Contact</a></li>
             <li class="login-li"><a href="javascript:void(0)" onclick="window.location.href = 'app'">Login</a></li>
           </ul>

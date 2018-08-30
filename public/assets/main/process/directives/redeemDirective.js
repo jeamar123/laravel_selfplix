@@ -14,14 +14,14 @@ app.directive('redeemDirective', [
         console.log( "redeemDirective Runinng !" );
 
         scope.user_data = null;
-        scope.isPageShow = 2;
+        scope.isPageShow = 1;
         scope.transaction_list = [];
         scope.redeem_data = {};
 
         scope.showBox = ( opt ) =>{
           scope.isPageShow = opt;
 
-          if( opt == 1 ){
+          if( opt == 3 ){
             scope.getUserTransactions = () =>{
               appModule.getUserTransactionList( sessionFactory.getSession() )
                 .then(function(response){
