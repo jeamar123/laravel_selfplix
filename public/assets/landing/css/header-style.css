@@ -113,6 +113,17 @@ header{
   width: 40px;
 }
 
+.header-nav .mobile-nav li:hover a{
+  color: #FFF !important;
+}
+
+.header-nav .mobile-nav li a,
+.header-nav .mobile-nav li a:focus{
+  border: 2px solid #fff !important;
+  padding: 6px 12px !important;
+}
+
+
 .header-banner{
   display: inline-block;
   width: 100%;
@@ -124,7 +135,7 @@ header{
 .header-banner .banner-content{
   width: 85%;
   margin: 0 auto;
-  height: 220px;
+  /*height: 220px;*/
   margin-top: 230px;
   z-index: 999;
   font-family: 'Open Sans';

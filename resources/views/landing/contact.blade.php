@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="app">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv='cache-control' content='no-cache'>
+    <meta http-equiv='expires' content='-1'>
+    <meta http-equiv='pragma' content='no-cache'>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Selfplix - Earn points and redeem prizes just by posting a selfie.</title>
     <link rel="shortcut icon" href="{{ asset('img/logo/camera3.png') }}" type="image/ico">
@@ -15,6 +18,7 @@
     <link rel="stylesheet" type="text/css" href="../assets/landing/css/header-style.css">
     <link rel="stylesheet" type="text/css" href="../assets/landing/css/footer-style.css">
     <link rel="stylesheet" type="text/css" href="../assets/landing/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../assets/landing/css/responsive.css">
     <link rel="stylesheet" type="text/css" href="../css/loader.css">
     <link rel="stylesheet" type="text/css" href="../css/custom.css">
 
@@ -52,31 +56,18 @@
               </li>
           </ul>
           
-          <ul class="nav pull-right">
+          <ul class="nav pull-right non-mobile-nav">
             <li><a href="/">Home</a></li>
             <li><a href="/about-us">About us</a></li>
             <li class="active"><a href="/contact">Contact</a></li>
             <li class="login-li"><a href="javascript:void(0)" onclick="window.location.href = 'app'">Login</a></li>
           </ul>
+
+          <ul class="nav pull-right mobile-nav">
+            <li><a href="javascript:void(0)" class="toggleMobileMenu"><i class="fa fa-navicon"></i></a></li>
+          </ul>
         </div>
       </div>
-
-      <!-- <div class="header-banner" >
-        <div class="banner-content">
-          <p class="banner-title">
-            Join us and be part of our network
-          </p>
-          <p class="banner-description">
-            Earn cash by taking selfies, posting, getting likes, earning points, and redeeming prizes.
-          </p>
-        </div>
-        <div class="banner-buttons">
-          <button class="btn btn-primary btn-join" onclick="window.location.href = 'app'">Join now</button>
-        </div>
-        <div class="banner-scroll">
-          <a href="#what-selfplix-can-do-section-id"><i class="fa fa-angle-down"></i></a>
-        </div>
-      </div> -->
     </header>
 
     <section class="body-section">
@@ -104,20 +95,6 @@
   <script type="text/javascript" src="<?php echo $server; ?>/js/jquery.min.js"></script>
   <script type="text/javascript" src="<?php echo $server; ?>/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="<?php echo $server; ?>/js/moment.min.js"></script>
-
-  <script type="text/javascript">
-    $('a').click(function() {
-        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-          var target = $(this.hash);
-          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-          if (target.length) {
-            $('html,body').animate({
-              scrollTop: target.offset().top
-            }, 500);
-            return false;
-          }
-        }
-      });
-  </script>
+  <script type="text/javascript" src="<?php echo $server; ?>/js/landing.js"></script>
 
 </html>

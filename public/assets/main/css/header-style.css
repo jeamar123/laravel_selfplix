@@ -61,7 +61,7 @@
 .header-search-container input,
 .header-search-container input:focus{
 	height: 30px;
-  border-radius: 1px;
+  border-radius: 14px;
   outline: none;
   background-color: #fff;
   box-shadow: none;

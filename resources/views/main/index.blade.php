@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="app">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv='cache-control' content='no-cache'>
+    <meta http-equiv='expires' content='-1'>
+    <meta http-equiv='pragma' content='no-cache'>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Selfplix - Earn points and redeem prizes</title>
     <link rel="shortcut icon" href="{{ asset('img/logo/camera3.png') }}" type="image/ico">
@@ -17,6 +20,7 @@
     <link rel="stylesheet" type="text/css" href="../assets/main/css/header-style.css">
     <link rel="stylesheet" type="text/css" href="../assets/main/css/footer-style.css">
     <link rel="stylesheet" type="text/css" href="../assets/main/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../assets/main/css/responsive.css">
     <link rel="stylesheet" type="text/css" href="../css/loader.css">
     <link rel="stylesheet" type="text/css" href="../css/custom.css">
 
