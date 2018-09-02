@@ -6,8 +6,6 @@
     <meta http-equiv='cache-control' content='no-cache'>
     <meta http-equiv='expires' content='-1'>
     <meta http-equiv='pragma' content='no-cache'>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <title>Selfplix - Earn points and redeem prizes just by posting a selfie.</title>
     <link rel="shortcut icon" href="{{ asset('img/logo/camera3.png') }}" type="image/ico">
