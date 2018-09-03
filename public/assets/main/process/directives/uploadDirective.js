@@ -5,7 +5,8 @@ app.directive('uploadDirective', [
   '$rootScope',
   'appModule',
   'sessionFactory',
-  function directive($http,$state,$stateParams,$rootScope,appModule,sessionFactory) {
+  'Upload',
+  function directive($http,$state,$stateParams,$rootScope,appModule,sessionFactory,Upload) {
     return {
       restrict: "A",
       scope: true,
@@ -22,8 +23,61 @@ app.directive('uploadDirective', [
         }
         scope.upload_step = 1;
 
+        scope.myImage = '';
+        scope.myCroppedImage = '';
+
+        var check = null;
+
+        var handleFileSelect=function(evt) {
+          var file=evt.currentTarget.files[0];
+          var reader = new FileReader();
+          reader.onload = function (evt) {
+            var image = new Image();
+            image.src = evt.target.result;
+            scope.$apply(function(scope){
+              image.onload = function() {
+                var body_width = $('body').width();
+
+
+
+                if( body_width > 480 ){
+                  check = calculateAspectRatioFit( this.width, this.height, $(".upload-content").width(), '300');
+                  $('.photo-booth').css({
+                    'display' : 'inline-block',
+                    'width' : check.width + 'px',
+                  });
+                }else{
+                  check = calculateAspectRatioFit( this.width, this.height, $(".upload-content").width(), '300');
+                  $('.photo-booth').css({
+                    'display' : 'inline-block',
+                    'width' : '95%',
+                  });
+                }
+
+                
+              };
+              scope.myImage=evt.target.result;
+            });
+          };
+          reader.readAsDataURL(file);
+        };
+
+        angular.element(document.querySelector('#upload-input')).on('change',handleFileSelect);
+
+        function calculateAspectRatioFit(srcWidth, srcHeight, maxWidth, maxHeight) {
+          var ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
+          return { width: srcWidth*ratio, height: srcHeight*ratio };
+       }
+
+        scope.activateUploadInput = function( ) {
+          $( "#upload-input" ).click();
+        }
+
         scope.addSelfieImage = function( file ){
+          scope.myImage = '';
+          scope.myCroppedImage = '';
           scope.selfieImage = file;
+          scope.toggleStep(2);
         }
 
         scope.validateFile = ( file ) =>{
@@ -42,7 +96,7 @@ app.directive('uploadDirective', [
         }
 
         scope.toggleStep = function( opt ){
-          if( opt == 3 ){
+          if( opt == 4 ){
             scope.submitSelfie();
           }else{
             scope.toggleLoading();
@@ -54,7 +108,7 @@ app.directive('uploadDirective', [
         scope.submitSelfie = ( ) =>{
           var data = {
             user_id : scope.user_data.id,
-            file : scope.selfieImage,
+            file : Upload.dataUrltoBlob( scope.selfieImage , "uploadedImage"),
             caption : scope.selfieData.caption,
           }
           scope.showLoading();

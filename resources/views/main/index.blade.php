@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../css/sweetalert.css">
+    <link rel="stylesheet" type="text/css" href="../css/ng-img-crop.css">
     <link rel="stylesheet" type="text/css" href="../assets/main/css/auth-style.css">
     <link rel="stylesheet" type="text/css" href="../assets/main/css/header-style.css">
     <link rel="stylesheet" type="text/css" href="../assets/main/css/footer-style.css">
@@ -77,6 +78,7 @@
   <script type="text/javascript" src="<?php echo $server; ?>/js/ng-file-upload-shim.min.js"></script>
   <script type="text/javascript" src="<?php echo $server; ?>/js/ng-file-upload.min.js"></script>
   <script type="text/javascript" src="<?php echo $server; ?>/js/sweetalert.min.js"></script>
+  <script type="text/javascript" src="<?php echo $server; ?>/js/ng-img-crop.js"></script>
 
   <script type="text/javascript" src="<?php echo $server; ?>/assets/main/process/app.js"></script>
 

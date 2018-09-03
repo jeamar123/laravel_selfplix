@@ -72,7 +72,10 @@
 }
 
 @media only screen and (max-width : 992px) {
-
+    .upload-content {
+        width: 85%;
+        padding: 20px;
+    }
 }
 
 @media only screen and (max-width : 950px) {
@@ -132,6 +135,19 @@
         left: auto;
         right: 0;
     }
+
+
+}
+
+@media only screen and (max-width : 650px) {
+    .upload-content {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .step-one {
+        padding-bottom: 100px; 
+    }
 }
 
 @media only screen and (max-width : 610px) {
@@ -146,13 +162,9 @@
         padding: 20px 30px;
     }
 
-    .home-container {
-        padding-bottom: 50px;
-    }
-
     .home-content {
-        width: 100%;
-        margin: 0;
+        width: 98%;
+        margin: 5px auto;
         padding: 0;
     }
 
@@ -168,6 +180,12 @@
     }
 }
 
+@media only screen and (max-width : 520px) {
+    .upload-content {
+        padding: 0;
+    }
+}
+
 @media only screen and (max-width : 480px) {
     .header-logo{
         float: none;
@@ -176,7 +194,7 @@
     .header-search-container {
         padding: 5px;
         width: 100%;
-        background: #1caac1;
+        background: #15bdd8;
         height: 40px;
     }
 
@@ -214,7 +232,14 @@
         height: 40px;
     }
 
+    .step-one .photo-booth {
+        width: 100%;
+        min-width: unset;
+    }
 
+    .step-one .photo-booth img{
+        width: 100%;
+    }
 }
 
 /* Custom, iPhone Retina */ 
