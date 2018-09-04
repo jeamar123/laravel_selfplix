@@ -18,7 +18,6 @@
 		</span>
 
 		<span ng-if="upload_step == 2" class="step-two">
-			<div class="white-space-20"></div>
 			<div class="info-box">
 				<!-- <div class="img-wrapper " ngf-select="addSelfieImage($file)" ngf-dimensions="validateFile($file, $width, $height)" ng-model="file" ngf-fix-orientation="true" > -->
 				<div class="img-wrapper ">
@@ -38,12 +37,11 @@
 		</span>
 
 		<span ng-if="upload_step == 3" class="step-three">
-			<div class="white-space-20"></div>
 
 			<div class="selfie-summary-container">
 				<div class="img-wrapper">
 					<div class="post-image">
-						<img ngf-src="selfieImage">
+						<img ngf-src="selfieImage || '../img/upload-image.png'">
 					</div>
 				</div>
 				<div class="post-bottom">

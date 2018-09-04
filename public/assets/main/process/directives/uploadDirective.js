@@ -40,17 +40,18 @@ app.directive('uploadDirective', [
 
 
 
-                if( body_width > 480 ){
-                  check = calculateAspectRatioFit( this.width, this.height, $(".upload-content").width(), '300');
+                if( body_width > 600 ){
+                  check = calculateAspectRatioFit( this.width, this.height, this.width, '300');
                   $('.photo-booth').css({
                     'display' : 'inline-block',
                     'width' : check.width + 'px',
                   });
                 }else{
-                  check = calculateAspectRatioFit( this.width, this.height, $(".upload-content").width(), '300');
+                  check = calculateAspectRatioFit( this.width, this.height, $(".upload-content").width(), this.height);
                   $('.photo-booth').css({
                     'display' : 'inline-block',
-                    'width' : '95%',
+                    'width' : check.width + 'px',
+                    'height' : check.height + 'px',
                   });
                 }
 

@@ -176,9 +176,13 @@
 }
 
 #informationModal .modal-dialog{
-  width: 700px;
   font-family: 'Roboto Light';
+  width: 50%;
   color: #000;
+}
+
+#informationModal .modal-body{
+  padding: 0;
 }
 
 #informationModal .modal-body .info-header-title{ 
@@ -204,6 +208,7 @@
   padding: 15px;
   border-radius: 2px;
   background: #f7f7f7;
+  margin: 0 15px;
   margin-bottom: 20px;
   box-shadow: 1px 1px 5px #aaa;
 }

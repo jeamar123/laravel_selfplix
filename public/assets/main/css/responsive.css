@@ -60,7 +60,13 @@
 }
 
 @media only screen and (max-width : 1200px) {
+    .upload-content {
+        width: 80%;
+    }
 
+    #informationModal .modal-dialog{
+      width: 70%;
+    }
 }
 
 @media only screen and (max-width : 1110px) {
@@ -73,7 +79,6 @@
 
 @media only screen and (max-width : 992px) {
     .upload-content {
-        width: 85%;
         padding: 20px;
     }
 }
@@ -89,7 +94,9 @@
 }
 
 @media only screen and (max-width : 880px) {
-
+    .upload-content {
+        width: 95%;
+    }
 }
 
 /* Small Devices, Tablets */
@@ -136,12 +143,23 @@
         right: 0;
     }
 
+    .step-two .info-box .img-wrapper {
+        height: 200px;
+    }
 
+    .step-two textarea, 
+    .step-two textarea:focus {
+        height: 170px;
+    }
+
+    #informationModal .modal-dialog {
+        width: 90%;
+    }
 }
 
 @media only screen and (max-width : 650px) {
     .upload-content {
-        width: 100%;
+        width: 95%;
         padding: 10px;
     }
 
@@ -151,7 +169,30 @@
 }
 
 @media only screen and (max-width : 610px) {
-    
+   .step-two .info-box {
+        display: block;
+        margin: 0 auto;
+    }     
+
+    .step-two .info-box .img-wrapper {
+        width: 250px;
+        height: 250px;
+        margin: 0 auto 20px auto;
+    }
+
+    .step-two .info-box .selfie-desc {
+        margin-left: 0px; 
+    }
+
+    .step-three .selfie-summary-container{
+        margin: 0px auto 10px auto;
+    }
+}
+
+@media only screen and (max-width : 575px) {
+    #informationModal .modal-dialog {
+        width: 97%;
+    }
 }
 
 @media only screen and (max-width : 560px) {
@@ -233,17 +274,42 @@
     }
 
     .step-one .photo-booth {
-        width: 100%;
+        width: 280px;
+        height: 280px;
         min-width: unset;
     }
 
     .step-one .photo-booth img{
         width: 100%;
     }
+
+    .upload-content {
+        padding-bottom: 50px;
+    }
+
+    .step-three .selfie-summary-container {
+        width: 280px;
+    }
+
+    .step-three .selfie-summary-container .img-wrapper {
+        height: 280px;
+        width: 280px;
+    }
 }
 
 /* Custom, iPhone Retina */ 
 @media only screen and (max-width : 360px) {
+    .upload-content .step-back, 
+    .upload-content .step-back.hover, 
+    .upload-content .step-back.active, 
+    .upload-content .step-back:active, 
+    .upload-content .step-next, 
+    .upload-content .step-next.hover, 
+    .upload-content .step-next.active, 
+    .upload-content .step-next:active {
+        width: 120px;
+    }
+
     
 }
 
