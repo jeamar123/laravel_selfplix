@@ -161,6 +161,10 @@ body,html{
     font-size: 12px;
   }
 
+  .posts-container table tbody tr td img{
+    width: 300px;
+  }
+
   .posts-container table tbody tr:nth-child(odd){
     background: #eee;
   }

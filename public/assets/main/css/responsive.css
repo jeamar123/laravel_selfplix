@@ -74,12 +74,25 @@
 }
 
 @media only screen and (max-width : 1050px) {
-    
+    #showPostModal .modal-dialog {
+        width: 95%;
+    }
 }
 
 @media only screen and (max-width : 992px) {
     .upload-content {
         padding: 20px;
+    }
+
+    .profile-content {
+        width: 95%;
+        padding: 10px;
+        margin-bottom: 100px;
+        display: inline-block;
+    }
+
+    .profile-content .user-info-box {
+        padding: 15px 15px 60px 15px;
     }
 }
 
@@ -90,6 +103,44 @@
 
     .loader-container .loader img{
         width: 16% !important;
+    }
+}
+
+@media only screen and (max-width : 930px) {
+    
+}
+
+@media only screen and (max-width : 900px) {
+    .redeem-content {
+        display: block;
+        width: 97%;
+        height: auto;
+        margin-bottom: 50px;
+    }
+
+    .redeem-content .redeem-nav {
+        width: 100%;
+        margin-bottom: 15px;
+        border: none;
+    }
+
+    .redeem-content .redeem-nav .redeem-ul li {
+        display: inline-block;
+        width: auto !important; 
+    }
+
+    .redeem-content .redeem-nav .redeem-ul li a, 
+    .redeem-content .redeem-nav .redeem-ul li a:hover {
+        display: inline-block; 
+        width: auto !important;  
+    }
+
+    .referral-container {
+        padding: 0;
+    }
+
+    .referral-container p {
+        border-bottom: none;
     }
 }
 
@@ -155,6 +206,28 @@
     #informationModal .modal-dialog {
         width: 90%;
     }
+
+    .profile-content .user-info-box .img-wrapper {
+        width: 130px;
+        height: 130px;
+    }
+
+    #showPostModal .modal-dialog {
+        width: 85%;
+    }
+
+    #showPostModal .modal-content .modal-body {
+        padding: 0;
+    }
+
+    #showPostModal .modal-content .modal-body .photo-post-container {
+        display: inline-block;
+    }
+
+    #showPostModal .modal-content .modal-body .photo-post-container .info-box {
+        padding: 0 0 20px 0;
+        border: none;
+    }
 }
 
 @media only screen and (max-width : 650px) {
@@ -165,6 +238,58 @@
 
     .step-one {
         padding-bottom: 100px; 
+    }
+
+    .transactions-tbl thead tr th:nth-child(1),
+    .transactions-tbl thead tr th:nth-child(2),
+    .transactions-tbl thead tr th:nth-child(3),
+    .transactions-tbl tbody tr td:nth-child(1),
+    .transactions-tbl tbody tr td:nth-child(2),
+    .transactions-tbl tbody tr td:nth-child(3){
+        display: none;
+    }
+
+    .transactions-tbl thead tr th,
+    .transactions-tbl tbody tr td{
+        width: auto !important;
+    }
+}
+
+@media only screen and (max-width : 630px) {
+    .profile-content .user-info-box {
+        display: inline-block;
+        text-align: center;
+        padding: 0 0 20px 0;
+    }
+
+    .profile-content .user-info-box .img-wrapper {
+        margin: 0 auto;
+    }
+
+    .profile-content .user-info-box .info-content {
+        padding: 15px 0;
+    }
+
+    .sign-out-btn, 
+    .sign-out-btn:hover {
+        position: absolute;
+        right: 0;
+    }
+
+    .profile-content .user-info-box .info-content p span.user-posts, 
+    .profile-content .user-info-box .info-content p span.user-followers, 
+    .profile-content .user-info-box .info-content p span.user-following, 
+    .profile-content .user-info-box .info-content p span.user-points {
+        text-align: center;
+        margin: 0;
+        width: 24%;
+    }
+
+    .profile-content .user-info-box .info-content p span.user-posts span, 
+    .profile-content .user-info-box .info-content p span.user-followers span, 
+    .profile-content .user-info-box .info-content p span.user-following span, 
+    .profile-content .user-info-box .info-content p span.user-points span{
+        display: block;
     }
 }
 
@@ -192,6 +317,11 @@
 @media only screen and (max-width : 575px) {
     #informationModal .modal-dialog {
         width: 97%;
+    }
+
+    #showPostModal .modal-dialog {
+        width: 95%;
+        margin: 5px auto;
     }
 }
 
@@ -224,6 +354,20 @@
 @media only screen and (max-width : 520px) {
     .upload-content {
         padding: 0;
+    }
+}
+
+@media only screen and (max-width : 500px) {
+    .profile-content .user-info-box {
+        text-align: left;
+    }
+
+    .profile-content .user-info-box .img-wrapper {
+        margin: 0;
+    }
+
+    .user-update-form {
+        width: 100%;
     }
 }
 
@@ -298,6 +442,17 @@
 }
 
 /* Custom, iPhone Retina */ 
+@media only screen and (max-width : 400px) {
+    .modal-open .modal {
+        padding: 0 !important;
+    }
+
+    #showPostModal .modal-dialog {
+        width: 95%;
+        margin: 10px auto;
+    }
+}
+
 @media only screen and (max-width : 360px) {
     .upload-content .step-back, 
     .upload-content .step-back.hover, 
@@ -309,8 +464,6 @@
     .upload-content .step-next:active {
         width: 120px;
     }
-
-    
 }
 
 /* Custom, iPhone Retina */ 

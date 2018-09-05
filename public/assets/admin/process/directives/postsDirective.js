@@ -20,7 +20,7 @@ app.directive('postsDirective', [
             .then(function(response){
               console.log(response);
               if( response.data.status == true ){
-                scope.posts_arr = response.data.posts;
+                scope.posts_arr = response.data.rankings;
               }
             });
         }

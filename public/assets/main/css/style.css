@@ -72,7 +72,7 @@ body,html{
 
   .home-content .post-container .img-wrapper .post-image img{
     height: 100%;
-    margin: 0 -50%;
+    width: 100%;
   }
 
   .home-content .post-container .post-bottom{
@@ -424,6 +424,7 @@ body,html{
     position: relative;
     width: 100%;
     margin-bottom: 20px;
+    align-items: center;
   }
 
   .profile-content .user-info-box .img-wrapper{
@@ -590,8 +591,8 @@ body,html{
 
   .profile-content .user-post-box .user-post .img-wrapper{
     width: 100%;
+    height: 100%;
     overflow: hidden;
-    height: 220px;
     text-align: center;
     /*background: #333;*/
   }
@@ -604,7 +605,7 @@ body,html{
 
   .profile-content .user-post-box .user-post .img-wrapper .post-image img{
     height: 100%;
-    margin: 0 -50%;
+    width: 100%;
   }
 
   .user-update-form{
@@ -660,8 +661,8 @@ body,html{
   }
 
   #showPostModal .modal-content .modal-body .photo-post-container .photo-box{
-    width: 550px;
-    height: 550px;
+    /*width: 550px;*/
+    flex: 1;
   }
 
   #showPostModal .modal-content .modal-body .photo-post-container .photo-box .img-wrapper{
@@ -674,7 +675,7 @@ body,html{
 
   #showPostModal .modal-content .modal-body .photo-post-container .photo-box .img-wrapper img{
     height: 100%;
-    margin: 0 -50%;
+    width: 100%;
   }
 
 
@@ -1058,7 +1059,7 @@ body,html{
 
   .redeem-content .trans-table-container .transactions-tbl thead tr th:last-child,
   .redeem-content .trans-table-container .trans-table-body tbody tr td:last-child{
-
+    width: 60px;
   }
 
   .redeem-content .trans-table-container .trans-table-body tbody tr td{

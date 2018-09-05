@@ -52,10 +52,10 @@
 			<div class="redeem-form">
 				<form>
 					<p class="points-count">Points : <span ng-bind="user_data.points">999</span></p>
-					<p ng-if="user_data.points < 150" class="redeem-tip">You need to have at least 50 points to redeem.</p>
+					<p ng-if="user_data.points < 150" class="redeem-tip">You need to have at least 150 points to redeem.</p>
 
 					<div ng-class="{ 'form-pointer-events-none' : user_data.points < 150 }" class="row">
-						<div class="col-6">
+						<div class="col-12 col-sm-6 col-md-6">
 							<div class="form-group">
 								<label>Payment option</label>
 								<select class="custom-select" ng-model="redeem_data.payment_option">
@@ -76,7 +76,7 @@
 							</div>
 						</div>
 						
-						<div class="col-6">
+						<div class="col-12 col-sm-6 col-md-6">
 							<div class="form-group">
 								<label>Receiver's Name</label>
 								<input type="text" class="form-control" ng-model="redeem_data.name" name="">

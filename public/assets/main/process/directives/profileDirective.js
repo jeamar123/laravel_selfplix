@@ -46,9 +46,20 @@ app.directive('profileDirective', [
         }
 
         scope.logout = ( ) =>{
-          scope.toggleLoading();
-          sessionFactory.unsetSession();
-          $state.go('auth');
+          swal({
+            title: "Confirm",
+            text: "are you sure you want to logout?",
+            type: "warning",
+            showCancelButton: true,
+            closeOnConfirm: true,
+            animation: "slide-from-top"
+          }, function(isTrue){
+            if(isTrue){
+              scope.toggleLoading();
+              sessionFactory.unsetSession();
+              $state.go('auth');
+            }
+          });
         }
 
         scope.heartOption = ( post ) =>{

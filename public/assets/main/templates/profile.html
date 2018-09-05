@@ -17,7 +17,7 @@
 						<span ng-if="user_data.isFollowed">Following</span>
 					</button>
 					<span ng-if="isUserSearch && user_data.isFollowing == true" class="follows-you">Follows you</span>
-					<p>
+					<p >
 						<span class="user-posts">
 							<span ng-bind="user_data.posts">999</span> posts
 						</span>
@@ -109,6 +109,8 @@
 									<i ng-if="selected_post.isLiked" class="fa fa-heart"></i>
 									<i ng-if="!selected_post.isLiked" class="fa fa-heart-o"></i>
 								</div>
+
+								<a href="javascript:void(0)" data-dismiss="modal" style="position: absolute;right: 5px;top: 5px;"><i class="fa fa-close" style="font-size: 20px;color: #c7deef;"></i></a>
 	        		</div>
 
 	        		<div class="user-post-description">
