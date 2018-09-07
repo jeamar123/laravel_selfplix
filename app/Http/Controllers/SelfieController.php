@@ -11,6 +11,7 @@ use App\User;
 use App\Selfie;
 use App\Follows;
 use App\Likes;
+use App\Notif;
 
 class SelfieController extends Controller
 {
@@ -152,10 +153,25 @@ class SelfieController extends Controller
                     'selfie_id' => $post['id'],
                   ]);
 
+    $logged_in_user = User::where('id', '=', $request->get('user_id'))->get();
+
     if($create_like) {
       Selfie::where('id', '=', $post['id'])->increment('likes', 1);
       if( $request->get('user_id') != $post['user_id'] ){
         User::where('id', '=', $post['user_id'])->increment('points', 2);
+
+        $check_notif = Notif::where( 'user_id', '=', $post['user_id'] )
+                              ->where( 'selfie_id', '=', $post['id'] )
+                              ->where( 'from_user_id', '=', $logged_in_user[0]->id )->count();
+
+        if( $check_notif == 0 ){
+          Notif::create([ 
+            'user_id' => $post['user_id'], 
+            'notification' => "<b>" . $logged_in_user[0]->username . "</b> liked your selfie.", 
+            'selfie_id' => $post['id'],
+            'from_user_id' => $logged_in_user[0]->id ]);
+        }
+
       }
 
       $data['status'] = true;

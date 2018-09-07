@@ -15,6 +15,7 @@ app.directive('homeDirective', [
 
         scope.user_data = null;
         scope.user_feed = [];
+        scope.no_posts = false;
 
         scope.goToUser = ( list ) =>{
           if( list.user_id == scope.user_data.id ){
@@ -39,7 +40,7 @@ app.directive('homeDirective', [
           }
           appModule.addLikeToSelfie( data )
             .then(function(response){
-              console.log( response );
+              // console.log( response );
               if( response.data.status == true ){
                 post.isLiked = true;
                 post.likes += 1;
@@ -56,7 +57,7 @@ app.directive('homeDirective', [
           }
           appModule.removeLikeToSelfie( data )
             .then(function(response){
-              console.log( response );
+              // console.log( response );
               if( response.data.status == true ){
                 post.isLiked = false;
                 post.likes -= 1;
@@ -74,8 +75,11 @@ app.directive('homeDirective', [
         scope.getHomeFeed = ( ) =>{
           appModule.getUserFeed( sessionFactory.getSession() )
             .then(function(response){
-              console.log( response );
+              // console.log( response );
               scope.user_feed = response.data;
+              if( scope.user_feed.length == 0 ){
+                scope.no_posts = true;
+              }
               scope.toggleLoading();
             });
         }
@@ -84,7 +88,7 @@ app.directive('homeDirective', [
           scope.toggleLoading();
           appModule.getUserInfo( sessionFactory.getSession() )
             .then(function(response){
-              console.log(response);
+              // console.log(response);
               scope.user_data = response.data;
               scope.getHomeFeed();
             });

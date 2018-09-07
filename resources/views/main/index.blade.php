@@ -91,6 +91,8 @@
   <script type="text/javascript" src="<?php echo $server; ?>/assets/main/process/directives/uploadDirective.js"></script>
   <script type="text/javascript" src="<?php echo $server; ?>/assets/main/process/directives/profileDirective.js"></script>
   <script type="text/javascript" src="<?php echo $server; ?>/assets/main/process/directives/redeemDirective.js"></script>
+  <script type="text/javascript" src="<?php echo $server; ?>/assets/main/process/directives/notifDirective.js"></script>
+  <script type="text/javascript" src="<?php echo $server; ?>/assets/main/process/directives/searchDirective.js"></script>
 
   <script type="text/javascript" src="<?php echo $server; ?>/assets/main/process/factories/factories.js"></script>
 

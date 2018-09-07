@@ -70,14 +70,11 @@ app.directive('profileDirective', [
           }
         }
 
-
-
-
         ///// HTTP REQUESTS
 
         scope.likePost = ( post ) =>{
           var data = {
-            user_id : scope.user_data.id,
+            user_id : sessionFactory.getSession(),
             post : post,
           }
           appModule.addLikeToSelfie( data )
@@ -94,7 +91,7 @@ app.directive('profileDirective', [
 
         scope.unlikePost = ( post ) =>{
           var data = {
-            user_id : scope.user_data.id,
+            user_id : sessionFactory.getSession(),
             post : post,
           }
           appModule.removeLikeToSelfie( data )

@@ -10,6 +10,7 @@ use DateTime;
 use App\User;
 use App\Follows;
 use App\Likes;
+use App\Notif;
 
 class UserController extends Controller
 {
@@ -209,10 +210,23 @@ class UserController extends Controller
                       ->where( 'friend_id', '=', $request->get('friend_id') )
                       ->update( ['status' => $request->get('isFollow')] );
 
+    $logged_in_user = User::where('id', '=', $request->get('user_id'))->get();
+
     if( $follow ){
       if( $request->get('isFollow') == true ){
         User::where('id', '=', $request->get('user_id'))->increment('following', 1);
         User::where('id', '=', $request->get('friend_id'))->increment('followers', 1);
+
+        $check_notif = Notif::where('user_id', '=', $request->get('friend_id'))
+                              ->where('follow_id', '=', $logged_in_user[0]->id)->count();
+
+        if( $check_notif == 0 ){
+          Notif::create([ 
+            'user_id' => $request->get('friend_id'), 
+            'notification' => "<b>" . $logged_in_user[0]->username . "</b> followed you.", 
+            'follow_id' => $logged_in_user[0]->id,
+            'from_user_id' => $logged_in_user[0]->id ]);
+        }
       }else{
         User::where('id', '=', $request->get('user_id'))->decrement('following', 1);
         User::where('id', '=', $request->get('friend_id'))->decrement('followers', 1);

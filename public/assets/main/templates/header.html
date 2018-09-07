@@ -13,12 +13,42 @@
         
     	<ul class="nav pull-right main-top-nav">
             <li ui-sref="home" ui-sref-active="active"><a href="javascript:void(0)"><i class="fa fa-home"></i></a></li>
-    		<!-- <li><a href="javascript:void(0)"><i class="fa fa-bell"></i></a></li> -->
-    		<!-- <li ui-sref="leaderboard" ui-sref-active="active"><a href="javascript:void(0)"><i class="fa fa-star"></i></a></li> -->
-            <li ui-sref="upload" ui-sref-active="active"><a href="javascript:void(0)"><i class="fa fa-cloud-upload"></i></a></li>
-            <li ui-sref="profile({ user : '' })" ui-sref-active="active"><a href="javascript:void(0)"><i class="fa fa-user"></i></a></li>
-            <li><a href="javascript:void(0)" data-toggle="modal" data-target="#informationModal"><i class="fa fa-question-circle"></i></a></li>
+            <!-- <li ui-sref="leaderboard" ui-sref-active="active"><a href="javascript:void(0)"><i class="fa fa-star"></i></a></li> -->
+    		<li ui-sref="search" ui-sref-active="active" class="search-li"><a href="javascript:void(0)"><i class="fa fa-search"></i></a></li>
+            <li ui-sref="upload" ui-sref-active="active"><a href="javascript:void(0)"><i class="fa fa-plus-square"></i></a></li>
+            <!-- <li ui-sref="profile({ user : '' })" ui-sref-active="active"><a href="javascript:void(0)"><i class="fa fa-user"></i></a></li> -->
+            <li class="notif" ui-sref-active="active">
+                <a href="javascript:void(0)" ng-click="toggleNotif()">
+                    <i class="fa fa-bell">
+                        <span ng-if="notifs_active > 0" class="notif-count" ng-bind="notifs_active"></span>
+                    </i>
+                </a>
+                <div class="notifications-container">
+
+                    <div ng-if="$index < 9" class="notif-row" ng-class="{ 'active' : list.status == false }" ng-repeat="list in user_notifications" ng-click="updateNotif( list )">
+                        <div class="img-wrapper">
+                            <img ng-src="{{list.friend_data.image}}">
+                        </div>
+                        <div class="notif-desc">
+                            <p ng-bind-html="toTrustedHTML( list.notification )"><b>jmrplbrs</b> followed you.</p>
+                            <p class="notif-date" ng-bind="getPostedDate( list.created_at )">an hour ago</p>
+                        </div>
+                    </div>
+
+                    <div class="see-more">
+                        <p ng-if="user_notifications.length == 0" class="text-center">No notifications</p>
+                        <p ng-if="user_notifications.length > 0" ui-sref="notifications" class="text-center">See more</p>
+                    </div>
+                </div>
+            </li>
+            <!-- <li><a href="javascript:void(0)" data-toggle="modal" data-target="#informationModal"><i class="fa fa-question-circle"></i></a></li> -->
+            <li ui-sref="profile({ user : '' })" class="header-user-icon">
+                <a href="javascript:void(0)" >
+                    <img ng-src="{{ user_data.image }}">
+                </a>
+            </li>
     	</ul>
+
         <div class="header-search-container pull-right">
             <form style="position: relative;">
                 <input type="text" class="form-control" ng-model="userSearchText" ng-change="searchChanged( userSearchText )" placeholder="Search">
@@ -39,7 +69,9 @@
                     </div>
                 </div>
             </form>
+
         </div>
+
     </div>
   </div>
 

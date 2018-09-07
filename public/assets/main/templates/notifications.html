@@ -1,0 +1,17 @@
+<div class="notif-container" notif-directive>
+	<div class="notif-content">
+		<p class="header-title">Notifications</p>
+
+		<div class="notif-content-container">
+      <div class="notif-row" ng-class="{ 'active' : list.status == false }" ng-repeat="list in user_notifications" ng-click="updateNotif( list )">
+          <div class="img-wrapper">
+              <img ng-src="{{list.friend_data.image}}">
+          </div>
+          <div class="notif-desc">
+              <p ng-bind-html="toTrustedHTML( list.notification )"><b>jmrplbrs</b> followed you.</p>
+              <p class="notif-date" ng-bind="getPostedDate( list.created_at )">an hour ago</p>
+          </div>
+      </div>
+  	</div>
+	</div>
+</div>

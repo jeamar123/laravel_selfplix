@@ -93,6 +93,36 @@ app.config(function($stateProvider, $urlRouterProvider){
         },
       },
     })
+    .state('notifications', {
+      url: '/notifications',
+      cache : false,
+      views: {
+        'header': {
+          templateUrl: '../assets/main/templates/header.html'
+        },
+        'main': {
+          templateUrl: '../assets/main/templates/notifications.html'
+        },
+        'footer': {
+          templateUrl: '../assets/main/templates/footer.html'
+        },
+      },
+    })
+    .state('search', {
+      url: '/search',
+      cache : false,
+      views: {
+        'header': {
+          templateUrl: '../assets/main/templates/header.html'
+        },
+        'main': {
+          templateUrl: '../assets/main/templates/search.html'
+        },
+        'footer': {
+          templateUrl: '../assets/main/templates/footer.html'
+        },
+      },
+    })
     .state('leaderboard', {
       url: '/leaderboard',
       cache : false,

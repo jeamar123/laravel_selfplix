@@ -80,6 +80,14 @@ appService.factory('appModule', function( serverUrl, $http, Upload ){
     return $http.post(serverUrl.url + 'api/add_transaction' , data);
   };
 
+  appFactory.getNotifs = function( id ) {
+    return $http.get(serverUrl.url + 'api/get_notifs_user/' + id);
+  };
+
+  appFactory.setNotifToSeen = function( id ) {
+    return $http.get(serverUrl.url + 'api/update_notif/' + id);
+  };
+
 
 
   return appFactory;

@@ -42,6 +42,10 @@ Route::get('/get_transactions_user/{id}', 'TransactionsController@getTransaction
 Route::post('/add_transaction', 'TransactionsController@addTransaction');
 Route::post('/update_transaction', 'TransactionsController@updateTransaction');
 
+Route::get('/get_notifs_user/{id}', 'NotificationsController@getNotifByUser');
+Route::post('/add_notif', 'NotificationsController@addNotif');
+Route::get('/update_notif/{id}', 'NotificationsController@updateNotif');
+
 
 
 
