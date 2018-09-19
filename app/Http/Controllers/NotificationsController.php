@@ -43,7 +43,8 @@ class NotificationsController extends Controller
     if( count($notifications) > 0 ){
       for( $x = 0; $x < count( $notifications ); $x++ ){
         $friend_data = User::where('id', $notifications[$x]->from_user_id )->get();
-        var_dump($friend_data)
+        return $friend_data;
+        
         $notifications[$x]['friend_data'] = $friend_data[0];
       }
     }
