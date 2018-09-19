@@ -250,7 +250,7 @@ class UserController extends Controller
     if( count($followings) > 0 ){
         for( $x = 0; $x < count($followings); $x++ ){
         $get_friend = User::where('id', '=', $followings[$x]['friend_id'])->get();
-        $followings[$x] = $get_friend[0];
+        $followings[$x] = $get_friend;
       }
     }
 
@@ -274,7 +274,7 @@ class UserController extends Controller
     if( count($followers) > 0 ){
       for( $x = 0; $x < count($followers); $x++ ){
         $get_friend = User::where('id', '=', $followers[$x]['user_id'])->get();
-        $followers[$x] = $get_friend[0];
+        $followers[$x] = $get_friend;
       }
     }
     
