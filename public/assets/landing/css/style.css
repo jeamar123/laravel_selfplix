@@ -6,7 +6,7 @@ body,html{
   font-family: 'Montserrat-Light' !important;
   color: #777 !important;
   font-size: 14px;
-  overflow-x: hidden;
+  /*overflow-x: hidden;*/
 }
 
 .body-section{

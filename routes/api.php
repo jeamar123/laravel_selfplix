@@ -18,7 +18,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('/login', 'AuthController@login');
+Route::post('/login_google', 'AuthController@loginGoogle');
 Route::post('/signup', 'AuthController@register');
+
+Route::get('/add_referral_code/{id}/{code}', 'AuthController@addReferralCode');
 
 Route::get('/check_existing_user/{id}', 'UserController@chckeUserExist');
 
@@ -27,6 +30,8 @@ Route::post('/get_search_user_info', 'UserController@getSearchUserDetails');
 Route::post('/update_user', 'UserController@updateUser');
 Route::post('/search_user', 'UserController@searchUser');
 Route::post('/follow_unfollow_user', 'UserController@followUnfollowUser');
+Route::get('/get_followings/{id}', 'UserController@getUserFollowings');
+Route::get('/get_followers/{id}', 'UserController@getUserFollowers');
 
 Route::post('/add_selfie', 'SelfieController@addSelfie');
 Route::post('/delete_selfie/{id}', 'SelfieController@deleteSelfie');

@@ -27,13 +27,13 @@
           <p ng-if="login_err" class="text-error fw-700" ng-bind="login_err_msg">User not found. Please check your credentials.</p>
           <button type="submit" class="btn btn-primary submit-btn">Sign in</button>
           <div class="white-space-10"></div>
-          <!-- <p class="txt-center ">_______________  <span style="position: relative;top: 4px;margin: 0 15px;">or</span>  _______________</p>
+          <p class="txt-center ">_______________  <span style="position: relative;top: 4px;margin: 0 15px;">or</span>  _______________</p>
           <div class="login-social-container">
-            <img src="../img/facebook.png">
+            <!-- <img src="../img/facebook.png"> -->
             <img ng-click="signInWithGoogle()" src="../img/google-plus.png">
-          </div> -->
+          </div>
           <div class="white-space-20"></div>
-          <a href="javascript:void(0)" ng-click="toggleSignup()" class="fh-underline clr-333"><p class="fs-11 fw-700">No Account yet? Sign up.</p></a>
+          <a href="javascript:void(0)" ng-click="toggleSignup()" class="fh-underline clr-333"><p class="fs-15 fw-700">No Account yet? Click here to Sign up.</p></a>
         </div>
       </span>
       
@@ -75,14 +75,14 @@
         <p ng-if="some_succ" class="text-success fw-700">Successfully created account. <a href="javascript:void(0)" ng-click="toggleSignup()" class="fh-underline clr-333">Login now !</a></p>
         <div class="white-space-10"></div>
         <button ng-disabled="!signup_data.name || !signup_data.email || !signup_data.password || !signup_data.re_password" type="submit" class="btn btn-primary submit-btn">Sign up</button>
-        <!-- <div class="white-space-10"></div>
+        <div class="white-space-10"></div>
         <p class="txt-center ">_______________  <span style="position: relative;top: 4px;margin: 0 15px;">or</span>  _______________</p>
         <div class="login-social-container">
-          <img src="../img/facebook.png">
+          <!-- <img src="../img/facebook.png"> -->
           <img src="../img/google-plus.png">
-        </div> -->
+        </div>
         <div class="white-space-20"></div>
-        <a href="javascript:void(0)" ng-click="toggleSignup()" class="fh-underline clr-333"><p class="fs-11 fw-700">Already have Account? Log in.</p></a>
+        <a href="javascript:void(0)" ng-click="toggleSignup()" class="fh-underline clr-333"><p class="fs-15 fw-700">Already have Account? Click here to Log in.</p></a>
       </div>
 
     </form>

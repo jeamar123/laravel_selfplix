@@ -10,8 +10,10 @@
 				<div class="info-content">
 					<p class="user-name"><span ng-bind="user_data.name">Jeamar Paul Libres</span> <a href="javascript:void(0)" ng-if="!isUserSearch" class="float-right sign-out-btn" ng-click="logout()">Logout <i class="fa fa-sign-out"></i> </a></p>
 					<p class="user-nickname">@<span ng-bind="user_data.username">jmrplbrs</span></p>
+					<p ng-if="isUserSearch && user_data.isFollowing == true" class="xs-follows-you">Follows you</p>
 					<button ng-if="!isUserSearch" class="btn btn-primary btn-edit-profile" ng-click="toggleEditProfile()">Edit Profile</button>
 					<button ng-if="!isUserSearch" class="btn btn-primary btn-edit-profile btn-redeem" ui-sref="redeem"><i class="fa fa-gift"></i></button>
+					<button ng-if="!isUserSearch" class="btn btn-primary btn-edit-profile btn-redeem btn-information" data-toggle="modal" data-target="#informationModal"><i class="fa fa-question-circle"></i></button>
 					<button ng-if="isUserSearch" class="btn btn-primary btn-edit-profile" ng-class="{'active' : user_data.isFollowed == true}" ng-click="followUpdateUser( user_data )">
 						<span ng-if="!user_data.isFollowed">Follow <i class="fa fa-plus"></i></span>
 						<span ng-if="user_data.isFollowed">Following</span>
@@ -24,10 +26,10 @@
 						<span ng-if="!isUserSearch" class="user-points">
 							<span ng-bind="user_data.points">999</span> points
 						</span>
-						<span class="user-followers">
+						<span class="user-followers" data-toggle="modal" data-target="#showFollowersModal" style="cursor: pointer;">
 							<span ng-bind="user_data.followers">999</span> followers
 						</span>
-						<span class="user-following">
+						<span class="user-following" data-toggle="modal" data-target="#showFollowingModal" style="cursor: pointer;">
 							<span ng-bind="user_data.following">999</span> following
 						</span>
 					</p>
@@ -137,4 +139,53 @@
 	    </div>
 	  </div>
 	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="showFollowingModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-body">
+	      	<a href="javascript:void(0)" data-dismiss="modal" style="position: absolute;right: 5px;top: 5px;"><i class="fa fa-close" style="font-size: 20px;color: #c7deef;"></i></a>
+	        <div class="following-container">
+
+	        	<div class="following-row" ng-repeat="list in following_arr">
+	        		<div class="img-wrapper">
+	        			<img ng-src="{{list.image}}">
+	        		</div>
+	        		<div class="following-desc">
+	        			<p class="name" ng-bind="list.name">Lorem Ipsum</p>
+	        			<p class="username">@<span ng-bind="list.username">jmrplbrs11</span></p>
+	        		</div>
+	        	</div>
+
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="showFollowersModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-body">
+	      	<a href="javascript:void(0)" data-dismiss="modal" style="position: absolute;right: 5px;top: 5px;"><i class="fa fa-close" style="font-size: 20px;color: #c7deef;"></i></a>
+	        <div class="followers-container">
+
+	        	<div class="followers-row" ng-repeat="list in followers_arr">
+	        		<div class="img-wrapper">
+	        			<img ng-src="{{list.image}}">
+	        		</div>
+	        		<div class="followers-desc">
+	        			<p class="name" ng-bind="list.name">Lorem Ipsum</p>
+	        			<p class="username">@<span ng-bind="list.username">jmrplbrs11</span></p>
+	        		</div>
+	        	</div>
+
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
 </div>

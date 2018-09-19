@@ -18,6 +18,7 @@ class CreateNotifsTable extends Migration
             $table->integer('user_id');
             $table->string('notification');
             $table->integer('selfie_id')->default(0);
+            $table->integer('follow_id')->default(0);
             $table->integer('from_user_id');
             $table->tinyInteger('status')->default(false);
             $table->timestamps();

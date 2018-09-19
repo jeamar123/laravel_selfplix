@@ -11,9 +11,20 @@
 
 		<div ng-if="isPageShow == 1" id="transactions" class="referral-container">
 			
-			<p><label>Referrals :</label> <span ng-bind="user_data.referrals">23</span></p>
+			<p><label>Your Referrals :</label> <span ng-bind="user_data.referrals">23</span></p>
 
-			<p><label>Code :</label> <span ng-bind="user_data.referral_code">UYMt6P</span></p>
+			<p><label>Your Code :</label> <span ng-bind="user_data.referral_code">UYMt6P</span></p>
+
+			<div ng-if="!user_data.referred" class="referral-form">
+				<label>Referral code from other user:</label>
+				
+				<div class="input-group">
+				  <input type="text" class="form-control" placeholder="input code" ng-model="referralCode">
+				  <div class="input-group-append submit-referral" ng-click="insertReferralCode( referralCode )" style="cursor: pointer;">
+				    <span class="input-group-text">Submit</span>
+				  </div>
+				</div>
+			</div>
 		</div>
 
 		<div ng-if="isPageShow == 2" id="transactions" class="trans-table-container">

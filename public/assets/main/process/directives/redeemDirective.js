@@ -80,6 +80,26 @@ app.directive('redeemDirective', [
             });
         }
 
+        scope.insertReferralCode = ( code ) =>{
+          if( !code ){
+            swal('Error!', 'Please input referral code.', 'error');
+            return false;
+          }
+
+          scope.toggleLoading();
+          appModule.addReferralCode( sessionFactory.getSession(), code )
+            .then(function(response){
+              console.log(response);
+              scope.toggleLoading();
+              if( response.data.true ){
+                scope.user_data.referred = true;
+                swal('Success!', 'Referral code added.', 'success');
+              }else{
+                swal('Error!', response.data.message, 'error');
+              }
+            });
+        }
+
         scope.getUserData = () =>{
           scope.toggleLoading();
           appModule.getUserInfo( sessionFactory.getSession() )

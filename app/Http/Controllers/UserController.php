@@ -242,4 +242,48 @@ class UserController extends Controller
     return $data;
   }
 
+  public function getUserFollowings( $id ){
+    $data = array();
+
+    $followings = Follows::where('user_id', '=', $id)->where('status', '=', true)->get();
+
+    for( $x = 0; $x < count($followings); $x++ ){
+      $get_friend = User::where('id', '=', $followings[$x]['friend_id'])->get();
+      $followings[$x] = $get_friend[0];
+    }
+
+    if( $followings ){
+      $data['status'] = true;
+      $data['message'] = 'Success.';
+      $data['followings'] = $followings;
+    } else {
+      $data['status'] = false;
+      $data['message'] = 'Failed.';
+    }
+    
+    return $data;
+  }
+
+  public function getUserFollowers( $id ){
+    $data = array();
+
+    $followers = Follows::where('friend_id', '=', $id)->where('status', '=', true)->get();
+
+    for( $x = 0; $x < count($followers); $x++ ){
+      $get_friend = User::where('id', '=', $followers[$x]['user_id'])->get();
+      $followers[$x] = $get_friend[0];
+    }
+
+    if( $followers ){
+      $data['status'] = true;
+      $data['message'] = 'Success.';
+      $data['followers'] = $followers;
+    } else {
+      $data['status'] = false;
+      $data['message'] = 'Failed.';
+    }
+    
+    return $data;
+  }
+
 }

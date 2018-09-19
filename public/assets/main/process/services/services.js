@@ -7,6 +7,10 @@ appService.factory('appModule', function( serverUrl, $http, Upload ){
     return $http.post(serverUrl.url + 'api/login', data);
   };
 
+  appFactory.loginUserByGoogle = function( data ) {
+    return $http.post(serverUrl.url + 'api/login_google', data);
+  };
+
   appFactory.signupUser = function( data ) {
     return $http.post(serverUrl.url + 'api/signup', data);
   };
@@ -52,8 +56,20 @@ appService.factory('appModule', function( serverUrl, $http, Upload ){
     });
   };
 
+  appFactory.addReferralCode = function( id, code ) {
+    return $http.get(serverUrl.url + 'api/add_referral_code/' + id + '/' + code);
+  };
+
   appFactory.getUserPosts = function( data ) {
     return $http.post(serverUrl.url + 'api/get_posts', data);
+  };
+
+  appFactory.getUserFollowings = function( id ) {
+    return $http.get(serverUrl.url + 'api/get_followings/' + id);
+  };
+
+  appFactory.getUserFollowers = function( id ) {
+    return $http.get(serverUrl.url + 'api/get_followers/' + id);
   };
 
   appFactory.deleteUserPost = function( id, user_id ) {

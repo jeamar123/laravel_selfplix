@@ -19,6 +19,8 @@ app.directive('profileDirective', [
         scope.isEditProfileShow = false;
         scope.update_user_image = null;
         scope.selected_post = {};
+        scope.following_arr = [];
+        scope.followers_arr = [];
 
         scope.getPostedDate = ( date_created ) =>{
           var date = moment( date_created ).fromNow();
@@ -57,6 +59,7 @@ app.directive('profileDirective', [
             if(isTrue){
               scope.toggleLoading();
               sessionFactory.unsetSession();
+              gapi.auth2.getAuthInstance().signOut();
               $state.go('auth');
             }
           });
@@ -79,7 +82,7 @@ app.directive('profileDirective', [
           }
           appModule.addLikeToSelfie( data )
             .then(function(response){
-              console.log( response );
+              // console.log( response );
               if( response.data.status == true ){
                 post.isLiked = true;
                 post.likes += 1;
@@ -96,7 +99,7 @@ app.directive('profileDirective', [
           }
           appModule.removeLikeToSelfie( data )
             .then(function(response){
-              console.log( response );
+              // console.log( response );
               if( response.data.status == true ){
                 post.isLiked = false;
                 post.likes -= 1;
@@ -115,7 +118,7 @@ app.directive('profileDirective', [
           }
           appModule.followUnfollowUser( data )
             .then(function(response){
-              console.log( response );
+              // console.log( response );
               if( response.data.status == true ){
                 user.isFollowed = ( user.isFollowed == true ) ? false : true;
                 user.followers = ( user.isFollowed == true ) ? user.followers + 1 : user.followers - 1;
@@ -181,7 +184,24 @@ app.directive('profileDirective', [
             .then(function(response){
               // console.log( response );
               scope.user_post = response.data;
+            });
+        }
+
+        scope.getFollowers = ( id ) =>{
+          appModule.getUserFollowers( id )
+            .then(function(response){
+              // console.log( response );
+              scope.followers_arr = response.data.followers;
               scope.toggleLoading();
+            });
+        }
+
+        scope.getFollowings = ( id ) =>{
+          appModule.getUserFollowings( id )
+            .then(function(response){
+              // console.log( response );
+              scope.following_arr = response.data.followings;
+              scope.toggleLoading();  
             });
         }
 
@@ -196,6 +216,8 @@ app.directive('profileDirective', [
               console.log( response );
               scope.user_data = response.data;
               scope.getPosts( $stateParams.user );
+              scope.getFollowings( $stateParams.user );
+              scope.getFollowers( $stateParams.user );
             });
         }
 
@@ -206,6 +228,8 @@ app.directive('profileDirective', [
               // console.log( response );
               scope.user_data = response.data;
               scope.getPosts( sessionFactory.getSession() );
+              scope.getFollowings( sessionFactory.getSession() );
+              scope.getFollowers( sessionFactory.getSession() );
             });
         }
 
@@ -232,6 +256,26 @@ app.directive('profileDirective', [
         }
 
         scope.onLoad();
+
+        scope.initGoogleAuth = ( ) =>{
+          gapi.client.init({
+              apiKey: 'AIzaSyDVDGbrc2hjtOAfnVXV1aZn2QgTU6ubXbA',
+              discoveryDocs: ["https://people.googleapis.com/$discovery/rest?version=v1"],
+              clientId: '1005628683520-3ntkl0sfsjv9pfpvl0hd2emfr6r4rpsi.apps.googleusercontent.com',
+              scope: 'profile'
+          }).then(function(res) {
+            console.log(res);
+          }).then(function(response) {
+            if( gapi.auth2.getAuthInstance().isSignedIn.get() == false ){
+              console.log('No google user logged in.');
+            }
+          }, function(reason) {
+            console.log( reason );
+          });
+          
+        }
+
+        gapi.load('client', scope.initGoogleAuth);
 
         $( ".user-post-options" ).delegate( '#userSettingsClicked' , 'click' , function(e){
           console.log('sdfsdf');

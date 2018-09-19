@@ -21,9 +21,9 @@ app.controller('mainController', function( $state, $scope , $rootScope, $statePa
 	vm.onLoad = ( ) => {
 		vm.checkSession();
 
-		setTimeout(function() {
-      $(".body-loader").fadeOut("slow");
-    }, 1000);
+		// setTimeout(function() {
+  //     $(".body-loader").fadeOut("slow");
+  //   }, 1000);
 	}
 
 	vm.onLoad();

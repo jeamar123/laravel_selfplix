@@ -39,8 +39,8 @@ body,html{
 
   .home-content .no-feed-posts{
     padding: 30px;
-    background: #fafafa;
-    box-shadow: 0px 0px 5px #999;
+    /*background: #fafafa;*/
+    /*box-shadow: 0px 0px 5px #999;*/
   }
 
   .home-content .post-container{
@@ -474,6 +474,13 @@ body,html{
     vertical-align: middle;
   }
 
+  .profile-content .user-info-box .info-content .btn-edit-profile.btn-redeem.btn-information{
+    width: 44px;
+    align-items: center;
+    vertical-align: middle;
+    margin-left: 10px;
+  }
+
   .profile-content .user-info-box .info-content .btn-edit-profile i{
     margin-left: 10px;
   }
@@ -483,6 +490,14 @@ body,html{
     color: #23b321;
     font-weight: 700;
     font-style: italic;
+  }
+
+  .profile-content .user-info-box .info-content .xs-follows-you{
+    margin-top: 10px;
+    color: #23b321;
+    font-weight: 700;
+    font-style: italic;
+    display: none;
   }
 
   .profile-content .user-info-box .info-content p{
@@ -816,6 +831,100 @@ body,html{
   #showPostModal .modal-content .modal-body .photo-post-container .user-post-options .post-settings-drop-box ul li:last-child a{
     border: none;
   }
+
+  /*-----*/
+
+  #showFollowingModal .modal-dialog{
+    width: 400px;
+  }
+
+  #showFollowingModal .following-container .following-row{
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    align-items: center;
+  }
+
+  #showFollowingModal .following-container .following-row:last-child{
+    border: none;
+  }
+
+  #showFollowingModal .following-container .following-row .img-wrapper{
+    width: 40px;
+    height: 40px;
+  }
+
+  #showFollowingModal .following-container .following-row .img-wrapper img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 1px solid #e9e9e9;
+  }
+
+  #showFollowingModal .following-container .following-row .following-desc{
+    flex: 1;
+    padding-left: 15px;
+  }
+
+  #showFollowingModal .following-container .following-row .following-desc p{
+    margin: 0;
+    font-weight: 700;
+    color: #000;
+  }
+
+  #showFollowingModal .following-container .following-row .following-desc p.username{
+    font-size: 12px;
+    color: #aaa;
+  }
+
+  /*-----*/
+
+  #showFollowersModal .modal-dialog{
+    width: 400px;
+  }
+
+  #showFollowersModal .followers-container .followers-row{
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    align-items: center;
+  }
+
+  #showFollowersModal .followers-container .followers-row:last-child{
+    border: none;
+  }
+
+  #showFollowersModal .followers-container .followers-row .img-wrapper{
+    width: 40px;
+    height: 40px;
+  }
+
+  #showFollowersModal .followers-container .followers-row .img-wrapper img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 1px solid #e9e9e9;
+  }
+
+  #showFollowersModal .followers-container .followers-row .followers-desc{
+    flex: 1;
+    padding-left: 15px;
+  }
+
+  #showFollowersModal .followers-container .followers-row .followers-desc p{
+    margin: 0;
+    font-weight: 700;
+    color: #000;
+  }
+
+  #showFollowersModal .followers-container .followers-row .followers-desc p.username{
+    font-size: 11px;
+    color: #999;
+  }
+
+
 /*----------------------*/
 
 /*-----------------------*/
@@ -1154,16 +1263,26 @@ body,html{
   .referral-container p{
     font-weight: 700;
     color: #000;
-    font-size: 18px;
+    font-size: 16px;
     padding-bottom: 10px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #eee;
     width: 50%;
   }
 
   .referral-container p label{
-    font-size: 20px;
+    font-size: 16px;
     margin-right: 10px;
     color: #999;
+  }
+
+  .referral-container .referral-form{
+    width: 300px;
+    margin-top: 30px;
+  }
+
+  .referral-container .referral-form label{
+    font-weight: 700;
+    color: #000;
   }
 /*----------------------*/
 

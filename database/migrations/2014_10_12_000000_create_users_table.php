@@ -26,7 +26,8 @@ class CreateUsersTable extends Migration
             $table->integer('following')->default(0);
             $table->string('referral_code')->nullable();
             $table->integer('referrals')->default(0);
-            $table->integer('reg_type')->nullable();
+            $table->tinyInteger('referred')->default(false);
+            $table->integer('reg_type')->default(0);
             $table->timestamps();
         });
     }

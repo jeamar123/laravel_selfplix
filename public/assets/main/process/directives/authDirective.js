@@ -40,7 +40,7 @@ app.directive('authDirective', [
             }
             appModule.loginUser(data)
               .then(function(response) {
-                console.log(response);
+                // console.log(response);
                 scope.toggleLoading();
                 scope.login_err_msg = response.data.message;
                 if( response.data.status == true ){
@@ -54,8 +54,30 @@ app.directive('authDirective', [
           }
         }
 
+        scope.loginGoogle = ( google_data ) =>{
+          scope.hideLoading();
+
+          var data = {
+            email: google_data.emailAddresses[0].value,
+            name: google_data.names[0].displayName,
+            username: (google_data.names[0].givenName).toLowerCase(),
+            image: google_data.photos[0].url,
+          }
+
+          appModule.loginUserByGoogle(data)
+            .then(function(response) {
+              console.log(response);
+              scope.hideLoading();
+              if( response.data.status == true ){
+                sessionFactory.setSession( response.data.user_id );
+                $state.go('home');
+              }else{
+                swal('', response.data.message, 'error');
+              }
+            });
+        }
+
         scope.signup = ( signup_data ) =>{
-          console.log(signup_data);
           if( scope.checkEmail( signup_data.email ) == true ){
             scope.email_invalid_err = false;
             if( signup_data.password == signup_data.re_password ){
@@ -106,8 +128,13 @@ app.directive('authDirective', [
           }, 300);
         }
 
+        scope.showLoading = ( ) =>{
+          isLoading = true;
+          $(".body-loader").show();
+        }
+
         scope.onLoad = ( ) =>{
-          scope.hideLoading();
+          // scope.hideLoading();
         }
 
         scope.onLoad();
@@ -123,7 +150,6 @@ app.directive('authDirective', [
         }
 
         scope.updateSigninStatus = ( isSignedIn ) =>{
-          console.log(isSignedIn);
           if (isSignedIn) {
             scope.getSignInDetalis();
           }else{
@@ -134,23 +160,11 @@ app.directive('authDirective', [
         scope.getSignInDetalis = ( ) =>{
           gapi.client.people.people.get({
             'resourceName': 'people/me',
-            'requestMask.includeField': 'person.names,person.emailAddresses,person.phoneNumbers,person.birthdays,person.addresses'
+            'personFields': 'emailAddresses,photos,nicknames,names'
           }).then(function(response) {
-            console.log(response.result);
-            console.log('Hello, ' + response.result.names[0].givenName);
-
-            appModule.checkUserEmail( response.result.emailAddresses[0].value )
-              .then(function(check_response) {
-                console.log( check_response );
-                if( check_response.data.status == true ){
-                  scope.signOutWithGoogle();
-                  swal('', 'Error logging in with your google account. The same email is already used by another user.', 'error');
-                }else{
-                  sessionFactory.setSession( response.result.emailAddresses[0].value );
-                  $state.go('home');
-                }
-              });
-            
+            // console.log(response.result);
+            // console.log('Hello, ' + response.result.names[0].givenName);
+            scope.loginGoogle( response.result );
           }, function(reason) {
             console.log('Error: ' + reason.result.error.message);
           });
@@ -164,23 +178,20 @@ app.directive('authDirective', [
               scope: 'profile'
           }).then(function(res) {
             gapi.auth2.getAuthInstance().isSignedIn.listen(scope.updateSigninStatus);
-
             scope.updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
             // scope.signOutWithGoogle();
-
           }).then(function(response) {
-            console.log(response);
             if( gapi.auth2.getAuthInstance().isSignedIn.get() == false ){
               console.log('No google user logged in.');
+              scope.hideLoading();
             }
           }, function(reason) {
             console.log( reason );
           });
+          
         }
 
-        // gapi.load('client', scope.initGoogleAuth);
-
-
+        gapi.load('client', scope.initGoogleAuth);
 
       }
     }
