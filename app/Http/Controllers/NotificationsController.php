@@ -44,7 +44,7 @@ class NotificationsController extends Controller
       for( $x = 0; $x < count( $notifications ); $x++ ){
         $friend_data = User::where('id', $notifications[$x]->from_user_id )->get();
         
-        $notifications[$x]['friend_data'] = $friend_data[0];
+        $notifications[$x]['friend_data'] = $friend_data;
       }
     }
 
