@@ -1,3 +1,4 @@
+
 app.directive('profileDirective', [
   '$http',
   '$state',
@@ -110,7 +111,7 @@ app.directive('profileDirective', [
         }
 
         scope.followUpdateUser = ( user ) =>{
-          scope.toggleLoading();
+          scope.showLoading();
           var data = {
             user_id : sessionFactory.getSession(),
             friend_id : user.id,
@@ -123,7 +124,7 @@ app.directive('profileDirective', [
                 user.isFollowed = ( user.isFollowed == true ) ? false : true;
                 user.followers = ( user.isFollowed == true ) ? user.followers + 1 : user.followers - 1;
               }
-              scope.toggleLoading();
+              scope.hideLoading();
             });
         }
 
@@ -245,6 +246,18 @@ app.directive('profileDirective', [
             $(".body-loader").show();
             isLoading = true;
           }
+        }
+
+        scope.showLoading = ( ) =>{
+          $(".body-loader").show();
+          isLoading = true;
+        }
+
+        scope.hideLoading = ( ) =>{
+          isLoading = false;
+          setTimeout(function() {
+            $(".body-loader").fadeOut("slow");
+          }, 300);
         }
 
         scope.onLoad = ( ) =>{

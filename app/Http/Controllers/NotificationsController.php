@@ -40,11 +40,11 @@ class NotificationsController extends Controller
     $data = array();
     $notifications = Notif::where('user_id', $id)->orderBy('created_at','desc')->get();
 
-
-
-    for( $x = 0; $x < count( $notifications ); $x++ ){
-      $friend_data = User::where('id', $notifications[$x]->from_user_id )->get();
-      $notifications[$x]['friend_data'] = $friend_data[0];
+    if( count($notifications) > 0 ){
+      for( $x = 0; $x < count( $notifications ); $x++ ){
+        $friend_data = User::where('id', $notifications[$x]->from_user_id )->get();
+        $notifications[$x]['friend_data'] = $friend_data[0];
+      }
     }
 
     if( $notifications ){
