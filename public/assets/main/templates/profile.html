@@ -150,11 +150,11 @@
 
 	        	<div class="following-row" ng-repeat="list in following_arr">
 	        		<div class="img-wrapper">
-	        			<img ng-src="{{list.image}}">
+	        			<img ng-src="{{list[0].image}}">
 	        		</div>
 	        		<div class="following-desc">
-	        			<p class="name" ng-bind="list.name">Lorem Ipsum</p>
-	        			<p class="username">@<span ng-bind="list.username">jmrplbrs11</span></p>
+	        			<p class="name" ng-bind="list[0].name">Lorem Ipsum</p>
+	        			<p class="username">@<span ng-bind="list[0].username">jmrplbrs11</span></p>
 	        		</div>
 	        	</div>
 
@@ -174,11 +174,11 @@
 
 	        	<div class="followers-row" ng-repeat="list in followers_arr">
 	        		<div class="img-wrapper">
-	        			<img ng-src="{{list.image}}">
+	        			<img ng-src="{{list[0].image}}">
 	        		</div>
 	        		<div class="followers-desc">
-	        			<p class="name" ng-bind="list.name">Lorem Ipsum</p>
-	        			<p class="username">@<span ng-bind="list.username">jmrplbrs11</span></p>
+	        			<p class="name" ng-bind="list[0].name">Lorem Ipsum</p>
+	        			<p class="username">@<span ng-bind="list[0].username">jmrplbrs11</span></p>
 	        		</div>
 	        	</div>
 
